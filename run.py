@@ -1,17 +1,24 @@
-name = input("Type your name: ")
+def player_name():
+    name = input("Type your name: ")
 
-class welcome_message():
-    """
-    Function to welcome the player to the game
-    """
+    return name
+    
+    
+# class welcome_message():
+    # """
+    # Function to welcome the player to the game
+    # """
 
-    def __init__(self, name):
-        self.name = name
+    # def __init__(self, name):
+        # self.name = name
 
-        return 
+        # return f"Welcome {name} to this game called Random Round of Golf.\n"
 
-    print(f"Welcome {name} to this game called Random Round of Golf.\n")
-    print("")
+    # def menu(self):
+        # """
+        # Gives to user options to start game, see leaderboard or see rules
+        # """
+        #start = input()
 
 
 # def input_name():
@@ -36,3 +43,6 @@ class welcome_message():
     # """
     # Runs the game
     # """
+
+print("Welcome to this little game called Random Round of Golf!\n")
+print("Before we tee off, type your name below:\n")
