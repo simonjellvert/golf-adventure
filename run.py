@@ -24,11 +24,11 @@ def player_name():
         name = input("Enter your name: ")
 
         if valid_name(name):
-            print(f"Thank you {name}!\n") #Make text green
+            print(f"Thank you {name}, great to meet you!\n") #Make text green
 
             break
 
-    return name.upper()
+    return name.upper
 
 def valid_name(name):
     """
@@ -47,26 +47,31 @@ def menu():
     """
     Gives the user options of play game, see the leaderboard, see the rules or quit game"
     """
-    print("Here are a few options for you:\n")
+    print("We are now at the club house, what would you like to do?\n")
     print("Start game? Press 1")
     print("Check out the leaderboard? Press 2")
-    print("Official rule book of Random Golf? Press 3")
+    print("Check out the rule book of Random Golf? Press 3")
     print("Do you want to come back later? Press 4")
-    start_game = input(" ")
-    check_leaderborad = input(" ")
-    check_rules = input(" ")
-    quit_game = input(" ")
-    if start_game == '1':
-        print("Game loading...\n")
-        run_game()
-    elif check_leaderborad == '2':
-        print("Leaderboard loading...\n")
-        show_leaderboard()
-    elif check_rules == '3':
-        print("Rule book loading...")
-        rule_book()
-    else:
-        print("Thank you for visiting, welcome back another time!")
+    menu_choice = input("")
+    try:
+        index = int(menu_choice)
+        if index == 1:
+            print("\nGame loading...\n")
+            run_game()
+        elif index == 2:
+            print("\nLeaderboard loading...\n")
+            check_leaderboard()
+        elif index == 3:
+            print("\nRule book loading...")
+            rule_book()
+        elif index == 4:
+            print("\nThank you for visiting, welcome back another time!")
+        else:
+            print("\nInvalid choice. Try again!\n")
+            menu()
+    except ValueError:
+        print("\nInvalid choice. Try again!\n")
+        menu()           
 
 def main():
     """
@@ -77,6 +82,6 @@ def main():
 
 print("Welcome to this little game called Random Round of Golf!\n")
 print("I'm Billy, your caddie for the day.\n")
-print("Before we tee off, what name should I put in the scorecard?.")
+print("Before we tee off, what name should I put in the scorecard?")
 print("(Make sure you only use letters when entering your name)\n")
 main()
