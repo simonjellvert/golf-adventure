@@ -28,7 +28,7 @@ def player_name():
 
             break
 
-    return name
+    return name.upper()
 
 def valid_name(name):
     """
@@ -43,14 +43,37 @@ def valid_name(name):
     return True 
 
 
-def menu()
-
+def menu():
+    """
+    Gives the user options of play game, see the leaderboard, see the rules or quit game"
+    """
+    print("Here are a few options for you:\n")
+    print("Start game? Press 1")
+    print("Check out the leaderboard? Press 2")
+    print("Official rule book of Random Golf? Press 3")
+    print("Do you want to come back later? Press 4")
+    start_game = input(" ")
+    check_leaderborad = input(" ")
+    check_rules = input(" ")
+    quit_game = input(" ")
+    if start_game == '1':
+        print("Game loading...\n")
+        run_game()
+    elif check_leaderborad == '2':
+        print("Leaderboard loading...\n")
+        show_leaderboard()
+    elif check_rules == '3':
+        print("Rule book loading...")
+        rule_book()
+    else:
+        print("Thank you for visiting, welcome back another time!")
 
 def main():
     """
     Runs the game
     """
     name = player_name()
+    menu()
 
 print("Welcome to this little game called Random Round of Golf!\n")
 print("I'm Billy, your caddie for the day.\n")
