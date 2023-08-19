@@ -1,48 +1,59 @@
+import gspread
+from google.oauth2.service_account import Credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('results_golf-adventure')
+
+# scores = SHEET.worksheet('result')
+
+# data = scores.get_all_values()
+
 def player_name():
-    name = input("Type your name: ")
+    """
+    Asks user for name
+    """
+    while True:   
+        name = input("Enter your name: ")
+
+        if valid_name(name):
+            print(f"Thank you {name}!\n") #Make text green
+
+            break
 
     return name
-    
-    
-# class welcome_message():
-    # """
-    # Function to welcome the player to the game
-    # """
 
-    # def __init__(self, name):
-        # self.name = name
+def valid_name(name):
+    """
+    Checks if the name contains only letters (no numbers or symbols)
+    """
+    if name.isalpha():  # Check if the name contains only alphabetic characters
+        return True
+    else:
+        print("Invalid name. Try again!.\n") #Make text red
+        return False
 
-        # return f"Welcome {name} to this game called Random Round of Golf.\n"
-
-    # def menu(self):
-        # """
-        # Gives to user options to start game, see leaderboard or see rules
-        # """
-        #start = input()
+    return True 
 
 
-# def input_name():
-    # """
-    # Function to input name
-    # """
+def menu()
 
 
-# def access_rules():
-    # """
-    # Function to access rules and how the game is played
-    # """
-
-
-# def access_leaderboard():
-    # """
-    # Function to access leaderbord with the top 3 scores all time
-    # """
-
-
-# def main():
-    # """
-    # Runs the game
-    # """
+def main():
+    """
+    Runs the game
+    """
+    name = player_name()
 
 print("Welcome to this little game called Random Round of Golf!\n")
-print("Before we tee off, type your name below:\n")
+print("I'm Billy, your caddie for the day.\n")
+print("Before we tee off, what name should I put in the scorecard?.")
+print("(Make sure you only use letters when entering your name)\n")
+main()
