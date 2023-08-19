@@ -78,7 +78,7 @@ def rule_book():
     """
     Explains the rule of the game for the user. With options to return to "club house"
     """
-    file_path = 'rule_book.txt'
+    file_path = 'text_files/rule_book.txt'
     with open(file_path, 'r') as file:
         content = file.read()
     
@@ -108,7 +108,7 @@ def play_hole():
     """
     Function that holds the 1st hole game
     """
-    file_path = 'first_hole.txt'
+    file_path = 'text_files/first_hole.txt'
     with open(file_path, 'r') as file:
         content_1 = file.read()
     
