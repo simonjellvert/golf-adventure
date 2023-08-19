@@ -56,13 +56,13 @@ def menu():
     try:
         index = int(menu_choice)
         if index == 1:
-            print("\nGame loading...\n")
+            print("\nLaunching game...\n")
             run_game()
         elif index == 2:
-            print("\nLeaderboard loading...\n")
+            print("\nLoading leaderboard...\n")
             check_leaderboard()
         elif index == 3:
-            print("\nRule book loading...")
+            print("\nLoading rule book...\n")
             rule_book()
         elif index == 4:
             print("\nThank you for visiting, welcome back another time!")
@@ -72,6 +72,36 @@ def menu():
     except ValueError:
         print("\nInvalid choice. Try again!\n")
         menu()           
+
+def rule_book():
+    """
+    Explains the rule of the game for the user. With options to return to "club house"
+    """
+    file_path = 'rule_book.txt'
+    with open(file_path, 'r') as file:
+        content = file.read()
+    
+    print(content)
+    clubhouse()
+    
+def clubhouse():
+    """
+    Function to let the user return to the menu
+    """
+    print("\nPress 1 to return to clubhouse")
+    to_clubhouse = input("")
+    try:
+        index = int(to_clubhouse)
+        if index == 1:
+            print("\nHeading back to the clubhouse...\n")
+            menu()
+        else:
+            print("\nInvalid choice. Try again!\n")
+            clubhouse()
+    except ValueError:
+        print("\nInvalid choice. Try again!\n")
+        clubhouse()   
+
 
 def main():
     """
