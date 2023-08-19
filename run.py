@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from itertools import islice
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -57,7 +58,7 @@ def menu():
         index = int(menu_choice)
         if index == 1:
             print("\nLaunching game...\n")
-            run_game()
+            play_hole()
         elif index == 2:
             print("\nLoading leaderboard...\n")
             check_leaderboard()
@@ -100,7 +101,56 @@ def clubhouse():
             clubhouse()
     except ValueError:
         print("\nInvalid choice. Try again!\n")
-        clubhouse()   
+        clubhouse()
+
+
+def play_hole():
+    """
+    Function that holds the 1st hole game
+    """
+    file_path = 'first_hole.txt'
+    with open(file_path, 'r') as file:
+        content_1 = file.read()
+    
+    print(content_1)
+    
+    first_shot = input("")
+    try:
+        index = int(first_shot)
+        if index == 1:
+            print("\nBrave choice. Remember, the left side is not where we want to be.\n")
+            print(f"Nice shot {name}, you avoided the out of bounce and ended up in the rough on the right hand side")
+            print("You're now 150 meters away from the hole. There's a bunker on the back side of the green and on the left side, the left one is really steep and is hard to get out of.")
+            print("You normally play your 6 iron from this distance, but maybe it's better to play the 7 iron, which is shorter?")
+            print("Press 6 for 6 iron")
+            print("Press 7 for 7 iron")
+            first_driver_second_choice = input("")
+            try:
+                index =int(first_driver_second_choice)
+                if index == 1:
+                    print("\nHere's your 6 iron. Good luck!\n")
+                    print("You hit that really well, but it looked like it went a bit far. Let's go check where it ended up.\n")#Waiting time
+                    print("Unlucky, you're in the bunker on the back of the green. The hole is in the center of the green, but after the hole it will run away, so it's better to be a bit short.")
+                    print("Do you want to hit it short or do you want to go for the hole?")
+                    print("Press 1 for short")
+                    print("Press 2 for hole")
+                    first_driver_third_choice = input("") 
+                    try:
+                        index =int(first_driver_second_choice)
+                if index == 1:
+                    print("\nHere's your 6 iron. Good luck!\n")
+                    print("You hit that really well, but it looked like it went a bit far. Let's go check where it ended up.\n")#Waiting time
+                    print("Unlucky, you're in the bunker on the back of the green. The hole is in the center of the green, but after the hole it will run away, so it's better to be a bit short.")
+                    print("Do you want to hit it short or do you want to go for the hole?")
+                    print("Press 1 for short")
+                    print("Press 2 for hole")
+                    first_driver_third_choice = input("") 
+        elif:
+            print("\nInvalid choice. Try again!\n")
+            clubhouse()
+    except ValueError:
+        print("\nInvalid choice. Try again!\n")
+        clubhouse()
 
 
 def main():
