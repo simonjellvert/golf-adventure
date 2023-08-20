@@ -50,50 +50,52 @@ def menu():
     """
     Gives the user options of play game, see the leaderboard, see the rules or quit game"
     """
-    print("We are now at the Clubhouse, what would you like to do?\n")
-    print("Start game? Press 1")
-    print("Check out the leaderboard? Press 2")
-    print("Check out the rule book of Random Golf? Press 3")
-    print("Do you want to come back later? Press 4")
-    menu_choice = input("")
-    
-    try:
-        index = int(menu_choice)
-        if index == 1:
-            clear_terminal()
-            print("\nLaunching game...\n")
-            play_hole()
-        elif index == 2:
-            clear_terminal()
-            print("\nLoading leaderboard...\n")
-            check_leaderboard()
-        elif index == 3:
-            clear_terminal()
-            print("\nLoading rule book...\n")
-            rule_book()
-        elif index == 4:
-            clear_terminal()
-            print("\nThank you for visiting, welcome back another time!")
-        else:
+    while True:
+        print("We are now at the Clubhouse, what would you like to do?\n")
+        print("Start game? Press 1")
+        print("Check out the leaderboard? Press 2")
+        print("Check out the rule book of Random Golf? Press 3")
+        print("Do you want to come back later? Press 4")
+        menu_choice = input("")
+        
+        try:
+            index = int(menu_choice)
+            if index == 1:
+                clear_terminal()
+                print("\nLaunching game...\n")
+                play_hole()
+                break  # Exit the loop after playing the game
+            elif index == 2:
+                clear_terminal()
+                print("\nLoading leaderboard...\n")
+                check_leaderboard()
+            elif index == 3:
+                clear_terminal()
+                print("\nLoading rule book...\n")
+                rule_book()
+            elif index == 4:
+                clear_terminal()
+                print("\nThank you for visiting, welcome back another time!")
+                exit()
+            else:
+                print("\nInvalid choice. Try again!\n")
+        except ValueError:
             print("\nInvalid choice. Try again!\n")
-            menu()
-    except ValueError:
-        print("\nInvalid choice. Try again!\n")
-        menu()           
-
+    
 
 def rule_book():
     """
     Explains the rule of the game for the user. With options to return to "club house"
     """
+    print("DEBUG: Inside rule_book function")  # Debug print statement
     file_path = 'text_files/rule_book.txt'
     with open(file_path, 'r') as file:
         content = file.read()
 
-    clear_terminal()
+    #clear_terminal()
     print(content)
     clubhouse()
-    
+
 
 def clubhouse():
     """
@@ -146,20 +148,6 @@ def check_leaderboard():
             print(f"{i}. {name} - Score: {score}")
         print()
 
-
-"""
-def check_leaderboard():
-    sheet = SHEET.get_worksheet(0)
-    leaderboard = sheet.get_all_records()
-    if not leaderboard:
-        print("The leaderboard is empty.\n")
-    else:
-        sorted_leaderboard = sorted(leaderboard, key=lambda x: x["Score"])
-        print("\nLeaderboard:\n")
-        for i, entry in enumerate(sorted_leaderboard, start=1):
-            print(f"{i}. {entry['Name']} - Score: {entry['Score']}")
-        print()
-"""
 
 def play_hole():
     """
@@ -584,9 +572,9 @@ def main():
     Runs the game
     """
     player_name()
+
     menu()
     rule_book()
-    get_choice("")
     play_hole()
 
 
