@@ -1,11 +1,11 @@
 Official rule book of Random golf!
 
 This game is not your typical round of golf, 
-in this game we will play 3 holes. 
-Before each shot, your caddy will present two options, 
+in this game we will only play 1 hole. 
+Before each shot, your caddie will present two options, 
 it can be to play driver or iron, chip or putt, etc. 
-When you choose your type of shot, 
-the computer will randomly choose the outcome. 
+You need to guess which shot is the best, 
+and when you enter your choice the fall out is presented. 
 
 The same procedure applys to the next shot and the next,
 until the ball is in the hole. 
