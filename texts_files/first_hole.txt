@@ -12,4 +12,4 @@ You can either choose to hit a driver, with the risk of ending up in one of the 
 Or you can choose the play a safe shot, which is a long iron.
 
 Press 1 for driver.
-press 2 for iron.
+Press 2 for iron.
