@@ -617,7 +617,7 @@ def play_iron_layup_putt():
 
     if play_iron_layup_putt_choice == 1:
         update_leaderboard(player_name, -1)
-        print("\Updating leaderboard...")
+        print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
