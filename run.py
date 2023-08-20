@@ -18,37 +18,36 @@ SHEET = GSPREAD_CLIENT.open('results_golf-adventure')
 
 # data = scores.get_all_values()
 
+
 def clear_terminal():
-    os.system('cls')
     os.system('clear')
+    os.system('clr')
+
 
 def player_name():
     """
-    Asks user for name
+    # Asks user for name
     """
     while True:   
         name = input("Enter your name: ")
 
         if valid_name(name):
             clear_terminal()
-            print(f"\nThank you {name}, great to meet you!\n") #Make text green
-
+            print(f"\nThank you {name}, great to meet you!\n") # Make text green
             break
 
-    return name.upper
+    return name
 
 
 def valid_name(name):
     """
-    Checks if the name contains only letters (no numbers or symbols)
+    # Checks if the name contains only letters (no numbers or symbols)
     """
     if name.isalpha():  # Check if the name contains only alphabetic characters
         return True
     else:
-        print("Invalid name. Try again!.\n") #Make text red
+        print("Invalid name. Try again!.\n") # Make text red
         return False
-
-    return True 
 
 
 def menu():
@@ -123,7 +122,7 @@ def play_hole():
     """
     Function that starts the game.
     """
-    print(f"Feeling warmed up {name}? Perfect! Let's get this round started\n")
+    print(f"Feeling warmed up? Perfect! Let's get this round started\n")
     print("This is our first hole, it's a 350 meters long par 4.\n")
     print("The left side is out of bounce, which means if you hit it there you are going to need to hit your 3rd shot from the tee box.\n")
     print("On the right side there's a grove, if you hit it there you might have to just lay up.\n")
@@ -194,7 +193,7 @@ def play_driver_7iron_hole_shot():
         clubhouse()
     elif driver_7iron_hole_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
@@ -230,11 +229,12 @@ def play_driver_7iron_short_chip_shot():
         clubhouse()
     elif play_driver_7iron_short_chip_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
+
 def play_driver_7iron_short_putt_shot():
-    print(f"Nice putt {name}, that's a tap in for a 5. On a par 4 that means your score in +1.")
+    print(f"Nice putt , that's a tap in for a 5. On a par 4 that means your score in +1.")
     
     play_driver_7iron_short_putt_choice = get_choice(
         "Press 1 to submit score and head back to Clubhouse.\nPress 2 to end game.\n"
@@ -246,8 +246,9 @@ def play_driver_7iron_short_putt_shot():
         clubhouse()
     elif play_driver_7iron_short_putt_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
+
 
 def play_8iron_shot():
     print("Nice shot! That ball came out smooth from the rough!\n")
@@ -264,6 +265,7 @@ def play_8iron_shot():
         clear_terminal()
         play_driver_8iron_putt_shot()
 
+
 def play_driver_8iron_chip_shot():
     print("OH! You chipped right in the hole!!\n")
     print("That's a birdie! I'll put a 3 on the scorecard, on a par 4 that means -1.\n")
@@ -278,8 +280,9 @@ def play_driver_8iron_chip_shot():
         clubhouse()
     elif driver_8iron_chip_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
+
 
 def play_driver_8iron_putt_shot():
     print("Nice putt, that was very close!")
@@ -295,12 +298,12 @@ def play_driver_8iron_putt_shot():
         clubhouse()
     elif play_driver_8iron_putt_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
 def play_iron_shot():
-    print(f"Really nice iron shot {name}, that went straight down the middle of the fairway!\n")
+    print(f"Really nice iron shot, that went straight down the middle of the fairway!\n")
     print("Now you have 180 meters to the green, that's quite long.")
     print("On the left side of the green there is a steep bunker, and there's another one on the back side of the green.")
     print("You can either choose to play a fairway wood that should take you to the green but risks ending up in one of the bunkers.")
@@ -335,6 +338,7 @@ def play_iron_wood():
         clear_terminal()
         play_iron_wood_fringe()
 
+
 def play_iron_wood_green():
     print("Ops.. It was close but it didn't reach all the way up. Good effort!\n")
     print("Do you want to try again or do you want to play the safer shot?")
@@ -350,6 +354,7 @@ def play_iron_wood_green():
         clear_terminal()
         play_iron_wood_green_fringe()
 
+
 def play_iron_wood_green_again():
     print("Well done, you managed to get out of there, it's on the green but far away from the hole.")
     print("I'll set you up for a 2-putt and a score of 6, on a par 4 that means +2\n")
@@ -364,8 +369,9 @@ def play_iron_wood_green_again():
         clubhouse()
     elif play_iron_wood_green_again_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
+
 
 def play_iron_wood_green_fringe():
     print("Good choice!\n")
@@ -383,6 +389,7 @@ def play_iron_wood_green_fringe():
         clear_terminal()
         play_iron_wood_green_fringe_7iron()
 
+
 def play_iron_wood_green_fringe_chip():
     print("You got the perfect amount of length and spin on that shot!")
     print("It ended up just 1 meter from the hole on the backside of it.\n")
@@ -399,11 +406,12 @@ def play_iron_wood_green_fringe_chip():
         clubhouse()
     elif play_iron_wood_green_fringe_chip_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
+
 def play_iron_wood_green_fringe_7iron():
-    print(f"Well done, {name}! That's just a tap in for a bogey. that means your score is +5.\n")
+    print(f"Well done! That's just a tap in for a bogey. that means your score is +5.\n")
 
     play_iron_wood_green_fringe_7iron_choice = get_choice(
         "Press 1 to submit score and head back to Clubhouse.\nPress 2 to end game.\n"
@@ -415,12 +423,12 @@ def play_iron_wood_green_fringe_7iron():
         clubhouse()
     elif play_iron_wood_green_fringe_7iron_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
 def play_iron_wood_fringe():
-    print(f"Good choice {name}!")
+    print(f"Good choice!")
     print("So, now your about 50 meters from the hole. If you're short it will come back to you because of it's slope so it's better to be a bit long.")
     print("Would you like to chip with a wedge or hit a 'bump and run' with your 7 iron?")
 
@@ -434,6 +442,7 @@ def play_iron_wood_fringe():
     elif play_iron_wood_fringe_choice == 2:
         clear_terminal()
         play_iron_wood_fringe_7iron()
+
 
 def play_iron_wood_fringe_wedge():
     print("You got a little bit to much spin on that one, and it rolled back a bit.")
@@ -450,11 +459,12 @@ def play_iron_wood_fringe_wedge():
         clubhouse()
     elif play_iron_wood_fringe_wedge_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
+
 def play_iron_wood_fringe_7iron():
-    print(f"Well done, {name}! That's just a tap in for a bogey. that means your score is +5.\n")
+    print(f"Well done! That's just a tap in for a bogey. that means your score is +5.\n")
 
     play_iron_wood_fringe_7iron_choice = get_choice(
         "Press 1 to submit your score and head back to Clubhouse.\nPress 2 to end game.\n"
@@ -466,12 +476,12 @@ def play_iron_wood_fringe_7iron():
         clubhouse()
     elif play_iron_wood_fringe_7iron_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
 def play_iron_layup():
-    print(f"Good choice, {name}.\n")
+    print(f"Good choice.\n")
     print("That went further than I thought it would, you're on the fringe!")
     print("You can choose to chip this ball or putt, but the green is sloping back towards you so you can't be short.\n")
 
@@ -502,13 +512,13 @@ def play_iron_layup_chip():
         clubhouse()
     elif play_iron_layup_chip_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
 def play_iron_layup_putt():
     print("That's how it's done! Right in the hole for BIRDIE!")
-    print(f"Well played {name}, safe and sound from tee to hole. True pro!\n")
+    print(f"Well played, safe and sound from tee to hole. True pro!\n")
     print("Press 1 to submit score.")
     print("Press 2 to end game.")
 
@@ -522,7 +532,7 @@ def play_iron_layup_putt():
         clubhouse()
     elif play_iron_layup_putt_choice == 2:
         clear_terminal()
-        print(f"\nThank you {name} for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
+        print(f"\nThank you for giving me the chance to caddie for you. I will not submit your score, since you didn't complete the round. Welcome back another time!")
         clubhouse()
 
 
@@ -534,6 +544,7 @@ def main():
     menu()
     rule_book()
     play_hole()
+
 
 print("Welcome to this little game called Random Round of Golf!\n")
 print("I'm Billy, your caddie for the day.\n")
