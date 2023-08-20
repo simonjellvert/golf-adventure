@@ -482,6 +482,7 @@ def main():
     """
     name = player_name()
     menu()
+    rule_book()
     play_hole()
 
 print("Welcome to this little game called Random Round of Golf!\n")
