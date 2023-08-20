@@ -14,10 +14,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('results_golf-adventure')
 
-# scores = SHEET.worksheet('result')
-
-# data = scores.get_all_values()
-
 
 def clear_terminal():
     os.system('clear')
@@ -60,6 +56,7 @@ def menu():
     print("Check out the rule book of Random Golf? Press 3")
     print("Do you want to come back later? Press 4")
     menu_choice = input("")
+    
     try:
         index = int(menu_choice)
         if index == 1:
@@ -118,6 +115,52 @@ def clubhouse():
         clubhouse()
 
 
+def update_leaderboard(player_name, score):
+    """
+    Function to update leaderboard
+    """
+    sheet = SHEET.get_worksheet(0)
+    row_data = [player_name, int(score)]
+    sheet.append_row(row_data)
+
+
+def check_leaderboard():
+    sheet = SHEET.get_worksheet(0)
+    leaderboard = sheet.get_all_records()
+    if not leaderboard:
+        print("The leaderboard is empty.\n")
+    else:
+        aggregated_scores = {}
+        for entry in leaderboard:
+            name = entry['Name']
+            score = int(entry['Score'])
+            if name in aggregated_scores:
+                aggregated_scores[name] += score
+            else:
+                aggregated_scores[name] = score
+
+        sorted_leaderboard = sorted(aggregated_scores.items(), key=lambda x: x[1])
+
+        print("\nLeaderboard\n")
+        for i, (name, score) in enumerate(sorted_leaderboard, start=1):
+            print(f"{i}. {name} - Score: {score}")
+        print()
+
+
+"""
+def check_leaderboard():
+    sheet = SHEET.get_worksheet(0)
+    leaderboard = sheet.get_all_records()
+    if not leaderboard:
+        print("The leaderboard is empty.\n")
+    else:
+        sorted_leaderboard = sorted(leaderboard, key=lambda x: x["Score"])
+        print("\nLeaderboard:\n")
+        for i, entry in enumerate(sorted_leaderboard, start=1):
+            print(f"{i}. {entry['Name']} - Score: {entry['Score']}")
+        print()
+"""
+
 def play_hole():
     """
     Function that starts the game.
@@ -130,7 +173,7 @@ def play_hole():
 
     first_shot = get_choice("Press 1 for driver.\nPress 2 for iron.\n")
 
-    if first_shot == 1: # Driver
+    if first_shot == 1:     # Driver
         clear_terminal()
         play_driver_shot()
     elif first_shot == 2:   # Iron
@@ -241,8 +284,8 @@ def play_driver_7iron_short_putt_shot():
     )
 
     if play_driver_7iron_short_putt_choice == 1:
+        update_leaderboard(player_name(), 1)
         clear_terminal()
-        # Submit score
         clubhouse()
     elif play_driver_7iron_short_putt_choice == 2:
         clear_terminal()
@@ -540,9 +583,10 @@ def main():
     """
     Runs the game
     """
-    name = player_name()
+    player_name()
     menu()
     rule_book()
+    get_choice("")
     play_hole()
 
 
