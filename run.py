@@ -17,22 +17,27 @@ SHEET = GSPREAD_CLIENT.open('results_golf-adventure')
 
 def clear_terminal():
     os.system('clear')
-    os.system('clr')
 
 
-def player_name():
+player_name = None
+
+
+def get_player_name():
     """
     # Asks user for name
     """
-    while True:   
-        name = input("Enter your name: ")
 
-        if valid_name(name):
-            clear_terminal()
-            print(f"\nThank you {name}, great to meet you!\n") # Make text green
-            break
+    global player_name
 
-    return name
+    if player_name is None:
+        while True:   
+            name = input("Enter your name: ")
+
+            if valid_name(name):
+                clear_terminal()
+                print(f"\nThank you {name}, great to meet you!\n") # Make text green
+                player_name = name
+                break
 
 
 def valid_name(name):
@@ -120,7 +125,7 @@ def clubhouse():
         clubhouse()
 
 
-def update_leaderboard(player_name, score):
+def update_leaderboard(score):
     """
     Function to update leaderboard
     """
@@ -229,7 +234,7 @@ def play_driver_7iron_hole_shot():
         )
     
     if driver_7iron_hole_choice == 1:
-        update_leaderboard(player_name, 0)
+        update_leaderboard(0)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -632,7 +637,7 @@ def main():
     """
     Runs the game
     """
-    player_name()
+    get_player_name()
 
     menu()
     rule_book()
@@ -644,9 +649,3 @@ print("I'm Billy, your caddie for the day.\n")
 print("Before we tee off, what name should I put in the scorecard?")
 print("(Make sure you only use letters when entering your name)\n")
 main()
-import gspread
-from google.oauth2.service_account import Credentials
-import time
-import os
-
-
