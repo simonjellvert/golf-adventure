@@ -73,38 +73,52 @@ def menu():
     see the rules or quit game"
     """
     while True:
-        print_slow("We are now at the Clubhouse, what would you like to do?\n")
-        print_slow("Start game? Press 1")
-        print_slow("Check out the leaderboard? Press 2")
-        print_slow("Check out the rule book of Random Golf? Press 3")
-        print_slow("Do you want to come back later? Press 4")
-        menu_choice = input("").strip()
+        print_slow(
+            "\nWe are now at the Clubhouse, what would you like to do?\n"
+            )
+        print(
+            "---------------------------------------------------------"
+            "\n* Start game? Press 1\n"
+            "\n* Check out the leaderboard? Press 2\n"
+            "\n* Check out the rule book of Random Golf? Press 3\n"
+            "\n* Do you want to come back later? Press 4\n"
+            )
+        menu_choice = input("Enter here: ").strip()
 
         try:
             index = int(menu_choice)
             if index == 1:
                 clear_terminal()
                 print("\nLaunching game...\n")
+                time.sleep(1.0)
                 play_hole()
                 break
             elif index == 2:
                 clear_terminal()
                 print("\nLoading leaderboard...\n")
+                time.sleep(1.0)
                 check_leaderboard()
                 break
             elif index == 3:
                 clear_terminal()
                 print("\nLoading rule book...\n")
+                time.sleep(1.0)
                 rule_book()
                 break
             elif index == 4:
                 clear_terminal()
-                print("\nThank you for visiting, welcome back another time!")
+                print_slow(
+                    "\nThank you for visiting, welcome back another time!"
+                    )
                 exit()
             else:
-                print("\nInvalid choice. Try again!\n")
+                print(
+                    term.red + "\nInvalid choice. Try again!\n" + term.normal
+                    )
         except ValueError:
-            print("\nInvalid choice. Try again!\n")
+            print(
+                term.red + "\nInvalid choice. Try again!\n" + term.normal
+                )
 
 
 def rule_book():
@@ -1039,6 +1053,7 @@ print_slow(     # Part 1 welcome message
 time.sleep(1.0)
 print_slow(     # Part 2 Welcome message
     "\nBefore we tee off, what name should I put in the scorecard?\n"
-    + term.red + "\n(Make sure you only use letters, "
-    "no whitespaces, when entering your name)\n" + term.normal)
+    + term.red + "(Make sure you only use letters, "
+    "no whitespaces, when entering your name)\n" + term.normal
+    )
 main()
