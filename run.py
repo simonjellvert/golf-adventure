@@ -190,6 +190,7 @@ def check_leaderboard():
 
     if not leaderboard:
         print_slow("The leaderboard is empty.\n")
+        clubhouse()
         return
 
     aggregated_scores = {}
