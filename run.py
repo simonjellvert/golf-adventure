@@ -229,21 +229,15 @@ def play_hole():
         )
     time.sleep(1.0)
     print_slow(
-        "This is the Random Golf hole, it's a 350 meters long par 4.\n"
-        )
-    print_slow(
-        "The left side is out of bounce, which means if you hit "
+        "\nThis is the Random Golf hole, it's a 350 meters long par 4.\n"
+        "\nThe left side is out of bounce, which means if you hit "
         "it there you are going to need to hit your 3rd "
         "shot from the tee box.\n"
-        )
-    print_slow(
         "On the right side there's a grove, "
         "if you hit it there you might have to just lay up.\n"
-        )
-    print_slow(
-        "You can either choose to hit a driver, with the risk "
+        "\nYou can either choose to hit a driver, with the risk "
         "of ending up in one of the hazards. Or you can choose "
-        "the play a safe shot, which is a long iron.\n"
+        "the play a safe shot, which is a long iron.\n\n"
         )
 
     first_shot = get_choice(
@@ -257,6 +251,8 @@ def play_hole():
         clear_terminal()
         play_iron_shot()
     elif first_shot == 0:   # Exit game
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -268,7 +264,7 @@ def get_choice(prompt):
     print_slow(prompt)
     
     try:
-        index = int(input(prompt))
+        index = int(input())
         return index
     except ValueError:
         print(term.red + "Invalid choice. Try again!" + term.normal)
@@ -310,6 +306,8 @@ def play_driver_shot():
         clear_terminal()
         play_8iron_shot()
     elif driver_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -352,6 +350,7 @@ def play_7_iron_shot():
         play_driver_7iron_short_shot()
     elif driver_7iron_choice == 0:
         clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -424,6 +423,8 @@ def play_driver_7iron_short_shot():
         clear_terminal()
         play_driver_7iron_short_putt_shot()
     elif driver_7iron_short_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -494,6 +495,8 @@ def play_driver_7iron_short_putt_shot():
             "I will not submit your score, since you didn't complete "
             "the round. Welcome back another time!")
         time.sleep(3.0)
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -529,6 +532,8 @@ def play_8iron_shot():
         clear_terminal()
         play_driver_8iron_putt_shot()
     elif driver_8iron_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -634,6 +639,8 @@ def play_iron_shot():
         clear_terminal()
         play_iron_layup()
     elif play_iron_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -670,6 +677,8 @@ def play_iron_wood():
         clear_terminal()
         play_iron_wood_fringe()
     elif play_iron_wood_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -699,6 +708,8 @@ def play_iron_wood_green():
         clear_terminal()
         play_iron_wood_green_fringe()
     elif play_iron_wood_green_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -768,6 +779,8 @@ def play_iron_wood_green_fringe():
         clear_terminal()
         play_iron_wood_green_fringe_7iron()
     elif play_iron_wood_green_fringe_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -843,6 +856,8 @@ def play_iron_wood_green_fringe_7iron():
             "Welcome back another time!"
             )
         time.sleep(3.0)
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -879,6 +894,8 @@ def play_iron_wood_fringe():
         clear_terminal()
         play_iron_wood_fringe_7iron()
     elif play_iron_wood_fringe_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
@@ -975,6 +992,8 @@ def play_iron_layup():
         clear_terminal()
         play_iron_layup_putt()
     elif play_iron_layup_choice == 0:
+        clear_terminal()
+        print("Thank you for your visit, welcome back another time!")
         exit()
 
 
