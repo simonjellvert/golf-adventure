@@ -91,18 +91,21 @@ def menu():
                 clear_terminal()
                 print("\nLaunching game...\n")
                 time.sleep(1.0)
+                clear_terminal()
                 play_hole()
                 break
             elif index == 2:
                 clear_terminal()
                 print("\nLoading leaderboard...\n")
                 time.sleep(1.0)
+                clear_terminal()
                 check_leaderboard()
                 break
             elif index == 3:
                 clear_terminal()
                 print("\nLoading rule book...\n")
                 time.sleep(1.0)
+                clear_terminal()
                 rule_book()
                 break
             elif index == 4:
@@ -137,7 +140,8 @@ def rule_book():
 
 def clubhouse():
     """
-    Function to let the player return to the menu
+    Function within rule_book and leaderboard 
+    to let the player return to the menu
     """
     print("\nPress 1 to return to Clubhouse")
     to_clubhouse = input("")
@@ -146,12 +150,20 @@ def clubhouse():
         if index == 1:
             clear_terminal()
             print("\nHeading back to the Clubhouse...\n")
+            time.sleep(1.0)
+            clear_terminal()
             menu()
         else:
-            print("\nInvalid choice. Try again!\n")
+            clear_terminal()
+            print(
+                term.red + "\nInvalid choice. Try again!\n" + term.normal
+                )
             clubhouse()
     except ValueError:
-        print("\nInvalid choice. Try again!\n")
+        clear_terminal()
+        print(
+            term.red + "\nInvalid choice. Try again!\n" + term.normal
+            )
         clubhouse()
 
 
