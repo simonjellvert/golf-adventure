@@ -42,7 +42,8 @@ def get_player_name():
     global player_name
 
     if player_name is None:
-        while True:   
+        while True:
+            
             name = input("\nEnter your name: ")
 
             if valid_name(name):
@@ -237,7 +238,7 @@ def get_choice(prompt):
     Function to try the players choice on each shot
     """
     
-    print_slowly(prompt)
+    print_slow(prompt)
     
     try:
         index = int(input(prompt))
@@ -339,7 +340,7 @@ def play_driver_7iron_hole_shot():
         "WOW! You managed to get it to stop just one meter from the hole, "
         "well done!\n"
         "\nBut there's still work to do, "
-        "theese putts are sometimes the hardest.\n"
+        "these putts are sometimes the hardest.\n"
         "Concentrate, and put it in the hole.\n"
         )
 
@@ -1030,13 +1031,13 @@ def main():
     play_hole()
 
 
-print_slow( # Part 1 welcome message
+print_slow(     # Part 1 welcome message
     term.green + "Welcome to this little game called "
     "Random Round of Golf!\n" + term.normal +
     "\nI'm Billy, your caddie for the day.\n"
     )
 time.sleep(1.0)
-print_slow( # Part 2 Welcome message
+print_slow(     # Part 2 Welcome message
     "\nBefore we tee off, what name should I put in the scorecard?\n"
     + term.red + "\n(Make sure you only use letters, "
     "no whitespaces, when entering your name)\n" + term.normal)
