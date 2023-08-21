@@ -62,7 +62,6 @@ def menu():
         print("Check out the rule book of Random Golf? Press 3")
         print("Do you want to come back later? Press 4")
         menu_choice = input("").strip()
-        print(f"DEBUG: Chosen option: {menu_choice}")
 
         try:
             index = int(menu_choice)
@@ -70,7 +69,7 @@ def menu():
                 #clear_terminal()
                 print("\nLaunching game...\n")
                 play_hole()
-                break  # Exit the loop after playing the game
+                break
             elif index == 2:
                 #clear_terminal()
                 print("\nLoading leaderboard...\n")
@@ -89,13 +88,12 @@ def menu():
                 print("\nInvalid choice. Try again!\n")
         except ValueError:
             print("\nInvalid choice. Try again!\n")
-    
+
 
 def rule_book():
     """
     Explains the rule of the game for the user. With options to return to "club house"
     """
-    print("DEBUG: Inside rule_book function")  # Debug print statement
     file_path = 'text_files/rule_book.txt'
     with open(file_path, 'r') as file:
         content = file.read()
@@ -130,7 +128,7 @@ def update_leaderboard(score):
     Function to update leaderboard
     """
     sheet = SHEET.get_worksheet(0)
-    row_data = [player_name, int(score)]
+    row_data = [player_name, str(score)]
     sheet.append_row(row_data)
 
 
@@ -275,7 +273,7 @@ def play_driver_7iron_short_chip_shot():
     )
 
     if play_driver_7iron_short_chip_choice == 1:
-        update_leaderboard(player_name(), 2)
+        update_leaderboard(2)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -295,7 +293,7 @@ def play_driver_7iron_short_putt_shot():
     )
 
     if play_driver_7iron_short_putt_choice == 1:
-        update_leaderboard(player_name(), 1)
+        update_leaderboard(1)
         print("\nUpdating leaderboard...")
         clear_terminal()
         clubhouse()
@@ -333,7 +331,7 @@ def play_driver_8iron_chip_shot():
     )
 
     if driver_8iron_chip_choice == 1:
-        update_leaderboard(player_name, -1)
+        update_leaderboard(-1)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -354,7 +352,7 @@ def play_driver_8iron_putt_shot():
     )
 
     if play_driver_8iron_putt_choice == 1:
-        update_leaderboard(player_name, 0)
+        update_leaderboard(0)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -434,7 +432,7 @@ def play_iron_wood_green_again():
     )
 
     if play_iron_wood_green_again_choice == 1:
-        update_leaderboard(player_name, 2)
+        update_leaderboard(2)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -451,7 +449,7 @@ def play_iron_wood_green_fringe():
     print("So, now your about 50 meters from the hole. If you're short it will come back to you because of it's slope so it's better to be a bit long.")
     print("Would you like to chip with a wedge or hit a 'bump and run' with your 7 iron?")
 
-    play_iron_wood_green_fringe_choice = get_choice (
+    play_iron_wood_green_fringe_choice = get_choice(
         "Press 1 for wedge.\nPress 7 for 7 iron.\nPress 0 to exit game.\n"
     )
 
@@ -476,7 +474,7 @@ def play_iron_wood_green_fringe_chip():
     )
 
     if play_iron_wood_green_fringe_chip_choice == 1:
-        update_leaderboard(player_name, 2)
+        update_leaderboard(2)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -496,7 +494,7 @@ def play_iron_wood_green_fringe_7iron():
     )
 
     if play_iron_wood_green_fringe_7iron_choice == 1:
-        update_leaderboard(player_name, 1)
+        update_leaderboard(1)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -537,7 +535,7 @@ def play_iron_wood_fringe_wedge():
     )
 
     if play_iron_wood_fringe_wedge_choice == 1:
-        update_leaderboard(player_name, 2)
+        update_leaderboard(2)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -557,7 +555,7 @@ def play_iron_wood_fringe_7iron():
     )
 
     if play_iron_wood_fringe_7iron_choice == 1:
-        update_leaderboard(player_name, 1)
+        update_leaderboard(1)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -598,7 +596,7 @@ def play_iron_layup_chip():
     )
 
     if play_iron_layup_chip_choice == 1:
-        update_leaderboard(player_name, 0)
+        update_leaderboard(0)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -621,7 +619,7 @@ def play_iron_layup_putt():
     )
 
     if play_iron_layup_putt_choice == 1:
-        update_leaderboard(player_name, -1)
+        update_leaderboard(-1)
         print("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
@@ -647,5 +645,5 @@ def main():
 print("Welcome to this little game called Random Round of Golf!\n")
 print("I'm Billy, your caddie for the day.\n")
 print("Before we tee off, what name should I put in the scorecard?")
-print("(Make sure you only use letters when entering your name)\n")
+print("(Make sure you only use letters, no whitespaces, when entering your name)\n")
 main()
