@@ -26,7 +26,7 @@ def print_slow(str):    # Code retrieved from Stack Overflow
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.03)
+        time.sleep(0.00)    # 0.03
 
 
 term = Terminal()   # Code from CI mentor Alexsei Konovalov
@@ -237,11 +237,14 @@ def play_hole():
         "if you hit it there you might have to just lay up.\n"
         "\nYou can either choose to hit a driver, with the risk "
         "of ending up in one of the hazards. Or you can choose "
-        "the play a safe shot, which is a long iron.\n\n"
+        "the play a safe shot, which is a long iron.\n"
         )
 
     first_shot = get_choice(
-        "Press 1 for driver.\nPress 2 for iron.\nPress 0 to exit game.\n"
+        "\nPress 1 for driver.\n"
+        "Press 2 for iron.\n"
+        "Press 0 to exit game.\n"
+        "\nEnter here: "
         )
 
     if first_shot == 1:     # Driver
@@ -285,27 +288,28 @@ def play_driver_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "You're now 125 meters away from the hole. There's a bunker "
+        "\nYou're now 125 meters away from the hole. There's a bunker "
         "on the back side of the green and on the left side, the "
-        "left one is really steep and is hard to get out of."
-        )
-    print_slow(
+        "left one is really steep and is hard to get out of.\n"
         "You normally play your 7 iron from this distance, "
         "but maybe it's better to play the 8 iron, "
         "which goes shorter?\n"
         )
 
     driver_choice = get_choice(
-        "Press 7 for 7 iron.\nPress 8 for 8 iron.\nPress 0 to exit game.\n"
+        "\nPress 7 for 7 iron.\n"
+        "Press 8 for 8 iron.\n"
+        "Press 0 to exit game.\n"
+        "\nEnter here: "
         )
 
-    if driver_choice == 7:
+    if driver_choice == 7:      # 7 iron
         clear_terminal()
         play_7_iron_shot()
-    elif driver_choice == 8:
+    elif driver_choice == 8:    # 8 iron
         clear_terminal()
         play_8iron_shot()
-    elif driver_choice == 0:
+    elif driver_choice == 0:    # Exit game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -324,31 +328,33 @@ def play_7_iron_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "You hit that really well, but it looked like it went a bit far. "
+        "\nYou hit that really well, but it looked like it went a bit far. "
         "Let's go check where it ended up.\n"
         )
     time.sleep(1.0)
     print_slow(
-        "Oh, you're in the bunker on the back of the green. "
+        "\nOh, you're in the bunker on the back of the green.\n"
         "The hole is in the center of the green, but after the hole "
         "it will run away, so it's better to be a bit short.\n"
         )
     print_slow(
-        "Do you want to hit it short or do you want to go for the hole?\n"
+        "\nDo you want to hit it short or do you want to go for the hole?\n"
         )
 
     driver_7iron_choice = get_choice(
-        "Press 1 to aim for the hole.\nPress 2 for the shorter shot."
+        "\nPress 1 to aim for the hole.\n"
+        "Press 2 for the shorter shot."
         "\nPress 0 to exit game.\n"
+        "\nEnter here: "
         )
     
-    if driver_7iron_choice == 1:
+    if driver_7iron_choice == 1:    # Aim for the hole
         clear_terminal()
         play_driver_7iron_hole_shot()
-    elif driver_7iron_choice == 2:
+    elif driver_7iron_choice == 2:  # Hit a short shot
         clear_terminal()
         play_driver_7iron_short_shot()
-    elif driver_7iron_choice == 0:
+    elif driver_7iron_choice == 0:  # Exit
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -371,8 +377,9 @@ def play_driver_7iron_hole_shot():
         )
 
     driver_7iron_hole_choice = get_choice(
-        "Press 1 to submit score of par and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of par and head back to Clubhouse.\n"
         "Press 2 to end game without submitting your score.\n"
+        "\nEnter here: "
         )
     
     if driver_7iron_hole_choice == 1:
@@ -405,24 +412,25 @@ def play_driver_7iron_short_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "Now, if you choose to chip there is a possibility that you "
-        "hit it too far and roll of the green, but on the other hand "
+        "\nNow, if you choose to chip there is a possibility that you "
+        "hit it too far and roll of the green, \nbut on the other hand "
         "- if you hit it well you avoid undulations ahead of the hole.\n"
         "If you choose to put, you need to read the line carefully.\n")
 
     driver_7iron_short_choice = get_choice(
-        "Press 1 to chip the ball.\n"
+        "\nPress 1 to chip the ball.\n"
         "Press 2 to putt the ball.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if driver_7iron_short_choice == 1:
+    if driver_7iron_short_choice == 1:  # Chip the ball
         clear_terminal()
         play_driver_7iron_short_chip_shot()
-    elif driver_7iron_short_choice == 2:
+    elif driver_7iron_short_choice == 2:    # Putt the ball
         clear_terminal()
         play_driver_7iron_short_putt_shot()
-    elif driver_7iron_short_choice == 0:
+    elif driver_7iron_short_choice == 0:    # Exit game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -441,23 +449,24 @@ def play_driver_7iron_short_chip_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "But it rolled out a bit but it's too far off the hole.\n"
+        "\nBut it rolled out a bit but it's too far off the hole.\n"
         "I'll set you up for a 2-putt and a score of 6, "
         "on a par 4 that means +2.\n"
         )
 
     play_driver_7iron_short_chip_choice = get_choice(
-        "Press 1 to submit score and head back to Clubhouse.\n"
+        "\nPress 1 to submit score and head back to Clubhouse.\n"
         "Press 2 to end game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_driver_7iron_short_chip_choice == 1:
+    if play_driver_7iron_short_chip_choice == 1:    # Submit score
         update_leaderboard(2)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_driver_7iron_short_chip_choice == 2:
+    elif play_driver_7iron_short_chip_choice == 2:  # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -479,16 +488,17 @@ def play_driver_7iron_short_putt_shot():
         "On a par 4 that means your score in +1.\n")
     
     play_driver_7iron_short_putt_choice = get_choice(
-        "Press 1 to submit score of +1 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
         "Press 2 to end game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_driver_7iron_short_putt_choice == 1:
+    if play_driver_7iron_short_putt_choice == 1:    # Enter score
         update_leaderboard(1)
         print_slow("\nUpdating leaderboard...")
         clear_terminal()
         clubhouse()
-    elif play_driver_7iron_short_putt_choice == 2:
+    elif play_driver_7iron_short_putt_choice == 2:  # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -513,25 +523,26 @@ def play_8iron_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "You're pin high on the right side of the green, on the fringe.\n"
+        "\nYou're pin high on the right side of the green, on the fringe.\n"
         "If you chip the ball you avoid undulations ahead of the hole "
         "but risk hitting it short or long.\n"
         "If you choose to putt, you need to read the green carefully\n"
         )
 
     driver_8iron_choice = get_choice(
-        "Press 1 to chip the ball.\n"
+        "\nPress 1 to chip the ball.\n"
         "Press 2 to putt.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
         )
 
-    if driver_8iron_choice == 1:
+    if driver_8iron_choice == 1:    # Chip ball
         clear_terminal()
         play_driver_8iron_chip_shot()
-    elif driver_8iron_choice == 2:
+    elif driver_8iron_choice == 2:  # Putt ball
         clear_terminal()
         play_driver_8iron_putt_shot()
-    elif driver_8iron_choice == 0:
+    elif driver_8iron_choice == 0:  # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -548,23 +559,25 @@ def play_driver_8iron_chip_shot():
     print_slow(
         "OH! You chipped right in the hole!!\n"
         )
+    time.sleep(1.0)
     print_slow(
-        "That's a birdie! I'll put a 3 on the scorecard, "
+        "\nThat's a birdie! I'll put a 3 on the scorecard, "
         "on a par 4 that means -1.\n"
         )
 
     driver_8iron_chip_choice = get_choice(
-        "Press 1 to submit score of -1 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of -1 and head back to Clubhouse.\n"
         "Press 2 to end game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if driver_8iron_chip_choice == 1:
+    if driver_8iron_chip_choice == 1:   # Enter Score
         update_leaderboard(-1)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif driver_8iron_chip_choice == 2:
+    elif driver_8iron_chip_choice == 2: # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -587,17 +600,18 @@ def play_driver_8iron_putt_shot():
         )
 
     play_driver_8iron_putt_choice = get_choice(
-        "Press 1 to submit score of par and head back to Clubhouse.\n"
+        "\Press 1 to submit score of par and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_driver_8iron_putt_choice == 1:
+    if play_driver_8iron_putt_choice == 1:  # Enter score
         update_leaderboard(0)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_driver_8iron_putt_choice == 2:
+    elif play_driver_8iron_putt_choice == 2:    # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -618,27 +632,28 @@ def play_iron_shot():
     print_slow(
         "Really nice iron shot, "
         "that went straight down the middle of the fairway!\n"
-        "Now you have 180 meters to the green, that's quite long.\n"
-        "On the left side of the green there is a steep bunker, "
+        "\nNow you have 180 meters to the green, that's quite long.\n"
+        "\nOn the left side of the green there is a steep bunker, "
         "and there's another one on the back side of the green.\n"
-        "You can either choose to play a fairway wood that should "
+        "\nYou can either choose to play a fairway wood that should "
         "take you to the green but risks ending up in one of the bunkers.\n"
         "Or you can play it safe and lay up for a chip shot.\n"
         )
 
     play_iron_choice = get_choice(
-        "Press 1 to hit a fairway wood.\n"
+        "\nPress 1 to hit a fairway wood.\n"
         "Press 2 to lay up.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_choice == 1:
+    if play_iron_choice == 1:   # Fairway wood
         clear_terminal()
         play_iron_wood()
-    elif play_iron_choice == 2:
+    elif play_iron_choice == 2:     # Lay up
         clear_terminal()
         play_iron_layup()
-    elif play_iron_choice == 0:
+    elif play_iron_choice == 0:     # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -657,26 +672,27 @@ def play_iron_wood():
         )
     time.sleep(1.0)
     print_slow(
-        "Unfortunately it looks like you're in the steep bunker.\n"
-        "This bunker is really hard to get out of. If you aim for "
+        "\nUnfortunately it looks like you're in the steep bunker.\n"
+        "\nThis bunker is really hard to get out of. If you aim for "
         "the hole and hit it well, you might just be able to get up.\n"
         "You're other option, which is a safer one, "
         "is to aim for the fringe to your right side.\n"
         )
 
     play_iron_wood_choice = get_choice(
-        "Press 1 to aim for the green.\n"
+        "\nPress 1 to aim for the green.\n"
         "Press 2 to aim for the fringe.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_choice == 1:
+    if play_iron_wood_choice == 1:  # Aim for the green
         clear_terminal()
         play_iron_wood_green()
-    elif play_iron_wood_choice == 2:
+    elif play_iron_wood_choice == 2:    # Aim for the fringe
         clear_terminal()
         play_iron_wood_fringe()
-    elif play_iron_wood_choice == 0:
+    elif play_iron_wood_choice == 0:    # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -692,22 +708,23 @@ def play_iron_wood_green():
 
     print_slow(
         "Ops.. It was close but it didn't reach all the way up. Good effort!\n"
-        "Do you want to try again or do you want to play the safer shot?\n"
+        "\nDo you want to try again or do you want to play the safer shot?\n"
         )
 
     play_iron_wood_green_choice = get_choice(
-        "Press 1 to try again.\n"
+        "\nPress 1 to try again.\n"
         "Press 2 to aim for the fringe.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_green_choice == 1:
+    if play_iron_wood_green_choice == 1:    # Another try
         clear_terminal()
         play_iron_wood_green_again()
-    elif play_iron_wood_green_choice == 2:
+    elif play_iron_wood_green_choice == 2:  # Aim for the fringe
         clear_terminal()
         play_iron_wood_green_fringe()
-    elif play_iron_wood_green_choice == 0:
+    elif play_iron_wood_green_choice == 0:  # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -724,22 +741,23 @@ def play_iron_wood_green_again():
     print_slow(
         "Well done, you managed to get out of there, "
         "it's on the green but far away from the hole.\n"
-        "I'll set you up for a 2-putt and a score of 6, "
+        "\nI'll set you up for a 2-putt and a score of 6, "
         "on a par 4 that means +2\n"
         )
 
     play_iron_wood_green_again_choice = get_choice(
-        "Press 1 to submit score of +2 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_green_again_choice == 1:
+    if play_iron_wood_green_again_choice == 1:  # Submit score
         update_leaderboard(2)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_wood_green_again_choice == 2:
+    elif play_iron_wood_green_again_choice == 2:    # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -759,26 +777,27 @@ def play_iron_wood_green_fringe():
 
     print_slow(
         "Good choice!\n"
-        "So, now your about 50 meters from the hole. "
+        "\nSo, now your about 50 meters from the hole.\n"
         "If you're short it will come back to you because "
         "of the green's slope so it's better to be a bit long.\n"
-        "Would you like to chip with a wedge or "
-        "hit a 'bump and run' with your 7 iron?\n"
+        "\nWould you like to chip with a wedge or "
+        'hit a "bump and run" with your 7 iron?\n'
         )
 
     play_iron_wood_green_fringe_choice = get_choice(
-        "Press 1 for wedge.\n"
+        "\nPress 1 for wedge.\n"
         "Press 7 for 7 iron.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_green_fringe_choice == 1:
+    if play_iron_wood_green_fringe_choice == 1:     # Play wedge
         clear_terminal()
         play_iron_wood_green_fringe_chip()
-    elif play_iron_wood_green_fringe_choice == 7:
+    elif play_iron_wood_green_fringe_choice == 7:   # Bump and run
         clear_terminal()
         play_iron_wood_green_fringe_7iron()
-    elif play_iron_wood_green_fringe_choice == 0:
+    elif play_iron_wood_green_fringe_choice == 0:   # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -793,29 +812,30 @@ def play_iron_wood_green_fringe_chip():
     """
 
     print_slow(
-        "You got the perfect amount of length and spin on that shot!"
+        "You got the perfect amount of length and spin on that shot!\n"
         )
     time.sleep(1.0)
     print_slow(
-        "It ended up just 1 meter from the hole on the backside of it.\n"
+        "\nIt ended up just 1 meter from the hole on the backside of it.\n"
         "But there's still work to do, these putts "
         "are sometimes the hardest.\n"
-        "Concentrate, and put it in the hole.\n"
+        "\nConcentrate, and put it in the hole.\n"
         )
     time.sleep(1.0)
 
     play_iron_wood_green_fringe_chip_choice = get_choice(
-        "Press 1 to submit score of +2 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_green_fringe_chip_choice == 1:
+    if play_iron_wood_green_fringe_chip_choice == 1:    # Submit score
         update_leaderboard(2)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_wood_green_fringe_chip_choice == 2:
+    elif play_iron_wood_green_fringe_chip_choice == 2:  # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -834,22 +854,23 @@ def play_iron_wood_green_fringe_7iron():
     """
 
     print_slow(
-        "Well done! That's just a tap in for a bogey. "
+        "Well done! That's just a tap in for a bogey.\n"
         "That means your score is +1.\n"
         )
 
     play_iron_wood_green_fringe_7iron_choice = get_choice(
-        "Press 1 to submit score of +1 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_green_fringe_7iron_choice == 1:
+    if play_iron_wood_green_fringe_7iron_choice == 1:   # Submit
         update_leaderboard(1)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_wood_green_fringe_7iron_choice == 2:
+    elif play_iron_wood_green_fringe_7iron_choice == 2:     # Leave
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -870,30 +891,31 @@ def play_iron_wood_fringe():
     """
 
     print_slow(
-        "Good choice!"
+        "Good choice!\n"
         )
     time.sleep(1.0)
     print_slow(
-        "So, now your about 50 meters from the hole. "
-        "If you're short it will come back to you because of it's "
+        "\nSo, now your about 50 meters from the hole.\n"
+        "\nIf you're short it will come back to you because of it's "
         "slope so it's better to be a bit long.\n"
-        "Would you like to chip with a wedge or hit a "
+        "\nWould you like to chip with a wedge or hit a "
         '"bump and run" with your 7 iron?\n'
         )
 
     play_iron_wood_fringe_choice = get_choice(
-        "Press 1 for wedge.\n"
+        "\nPress 1 for wedge.\n"
         "Press 7 for iron.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_fringe_choice == 1:
+    if play_iron_wood_fringe_choice == 1:   # Play wedge
         clear_terminal()
         play_iron_wood_fringe_wedge()
-    elif play_iron_wood_fringe_choice == 2:
+    elif play_iron_wood_fringe_choice == 2:     # Bump and run
         clear_terminal()
         play_iron_wood_fringe_7iron()
-    elif play_iron_wood_fringe_choice == 0:
+    elif play_iron_wood_fringe_choice == 0:     # Leave
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -910,13 +932,14 @@ def play_iron_wood_fringe_wedge():
     print_slow(
         "You got a little bit to much spin on that one, "
         "and it rolled back a bit.\n"
-        "It's a bit far off the hole, I'll set you up for a 2-putt.\n"
+        "\nIt's a bit far off the hole, I'll set you up for a 2-putt, "
         "which means you shot 6, on a par 4 that means +2.\n"
         )
 
     play_iron_wood_fringe_wedge_choice = get_choice(
-        "Press 1 to submit score of +2 and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
         "Press 2 to end game.\n"
+        "\nEnter here: "
     )
 
     if play_iron_wood_fringe_wedge_choice == 1:
@@ -944,22 +967,23 @@ def play_iron_wood_fringe_7iron():
     """
 
     print_slow(
-        "Well done! That's just a tap in for a bogey. "
+        "Well done! That's just a tap in for a bogey.\n"
         "That means your score is +1.\n"
         )
 
     play_iron_wood_fringe_7iron_choice = get_choice(
-        "Press 1 to submit your score of +1 and head back to Clubhouse.\n"
+        "\nPress 1 to submit your score of +1 and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_wood_fringe_7iron_choice == 1:
+    if play_iron_wood_fringe_7iron_choice == 1:     # Submit
         update_leaderboard(1)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_wood_fringe_7iron_choice == 2:
+    elif play_iron_wood_fringe_7iron_choice == 2:   # Leave
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -974,24 +998,25 @@ def play_iron_layup():
         )
     time.sleep(1.0)
     print_slow(
-        "That went further than I thought it would, you're on the fringe!\n"
-        "You can choose to chip this ball or putt, but the green is "
+        "\nThat went further than I thought it would, you're on the fringe!\n"
+        "\nYou can choose to chip this ball or putt, but the green is "
         "sloping back towards you so you can't be short.\n"
         )
 
     play_iron_layup_choice = get_choice(
-        "Press 1 to chip the ball.\n"
+        "\nPress 1 to chip the ball.\n"
         "Press 2 to putt.\n"
         "Press 0 to exit game.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_layup_choice == 1:
+    if play_iron_layup_choice == 1:     # Chip ball
         clear_terminal()
         play_iron_layup_chip()
-    elif play_iron_layup_choice == 2:
+    elif play_iron_layup_choice == 2:   # Putt ball
         clear_terminal()
         play_iron_layup_putt()
-    elif play_iron_layup_choice == 0:
+    elif play_iron_layup_choice == 0:   # Leave game
         clear_terminal()
         print("Thank you for your visit, welcome back another time!")
         exit()
@@ -1007,24 +1032,25 @@ def play_iron_layup_chip():
 
     print_slow(
         "Good chip, it stayed just one meter from the hole!\n"
-        "But there's still work to do, "
+        "\nBut there's still work to do, "
         "these putts are sometimes the hardest.\n"
-        "Concentrate, and put it in the hole.\n"
+        "\nConcentrate, and put it in the hole.\n"
         )
     time.sleep(1.0)
 
     play_iron_layup_chip_choice = get_choice(
-        "Press 1 to submit your score par and head back to Clubhouse.\n"
+        "\nPress 1 to submit your score par and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nEnter here: "
     )
 
-    if play_iron_layup_chip_choice == 1:
+    if play_iron_layup_chip_choice == 1:    # Submit
         update_leaderboard(0)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_layup_chip_choice == 2:
+    elif play_iron_layup_chip_choice == 2:  # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -1042,21 +1068,22 @@ def play_iron_layup_putt():
     """
     print_slow(
         "That's how it's done! Right in the hole for BIRDIE!\n"
-        "Well played, safe and sound from tee to hole. True pro!\n"
+        "\nWell played, safe and sound from tee to hole. True pro!\n"
         )
 
     play_iron_layup_putt_choice = get_choice(
-        "Press 1 to submit your score of -1 and head back to Clubhouse.\n"
+        "\nPress 1 to submit your score of -1 and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
+        "\nenter here: "
     )
 
-    if play_iron_layup_putt_choice == 1:
+    if play_iron_layup_putt_choice == 1:    # Submit
         update_leaderboard(-1)
         print_slow("\nUpdating leaderboard...")
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif play_iron_layup_putt_choice == 2:
+    elif play_iron_layup_putt_choice == 2:  # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
