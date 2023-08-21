@@ -189,7 +189,8 @@ def play_hole():
     Function that starts the game and first shot option.
     """
     print_slow(f"Feeling warmed up? Perfect! Let's get this round started\n")
-    print_slow("This is our first hole, it's a 350 meters long par 4.\n")
+    time.sleep(1.0)
+    print_slow("This is the Random Golf hole, it's a 350 meters long par 4.\n")
     print_slow("The left side is out of bounce, which means if you hit it there you are going to need to hit your 3rd shot from the tee box.\n")
     print_slow("On the right side there's a grove, if you hit it there you might have to just lay up.\n")
     print_slow("You can either choose to hit a driver, with the risk of ending up in one of the hazards. Or you can choose the play a safe shot, which is a long iron.\n")
@@ -207,6 +208,9 @@ def play_hole():
 
 
 def get_choice(prompt):
+    
+    print_slowly(prompt)
+    
     try:
         index = int(input(prompt))
         return index
@@ -217,6 +221,7 @@ def get_choice(prompt):
 
 def play_driver_shot():
     print_slow("Nice shot, you avoided the out of bounce and ended up in the rough on the right hand side.\n")
+    time.sleep(1.0)
     print_slow("You're now 125 meters away from the hole. There's a bunker on the back side of the green and on the left side, the left one is really steep and is hard to get out of.")
     print_slow("You normally play your 7 iron from this distance, but maybe it's better to play the 8 iron, which goes shorter?\n")
 
@@ -234,8 +239,10 @@ def play_driver_shot():
 
 def play_7_iron_shot():
     print_slow("Here's your 7 iron. Good luck!\n")
+    time.sleep(1.0)
     print_slow("You hit that really well, but it looked like it went a bit far. Let's go check where it ended up.\n")
-    print_slow("Oh, you're in the bunker on the back of the green. The hole is in the center of the green, but after the hole it will run away, so it's better to be a bit short.")
+    time.sleep(1.0)
+    print_slow("Oh, you're in the bunker on the back of the green. The hole is in the center of the green, but after the hole it will run away, so it's better to be a bit short.\n")
     print_slow("Do you want to hit it short or do you want to go for the hole?\n")
 
     driver_7iron_choice = get_choice("Press 1 to aim for the hole.\nPress 2 for the shorter shot.\nPress 0 to exit game.\n")
@@ -275,6 +282,7 @@ def play_driver_7iron_hole_shot():
 
 def play_driver_7iron_short_shot():
     print_slow("Oh no, it's a little too short and got stuck on the fringe...\n")
+    time.sleep(1.0)
     print_slow("Now, if you choose to chip there is a possibility that you hit it too far and roll of the green, but on the other hand - if you hit it well you avoid undulations ahead of the hole.")
     print_slow("If you choose to put, you need to read the line carefully.\n")
 
@@ -294,6 +302,7 @@ def play_driver_7iron_short_shot():
 
 def play_driver_7iron_short_chip_shot():
     print_slow("Ops...it's a duff...\n")
+    time.sleep(1.0)
     print_slow("But it rolled out a bit but it's too far off the hole.")
     print_slow("I'll set you up for a 2-putt and a score of 6, on a par 4 that means +2.\n")
 
@@ -315,7 +324,7 @@ def play_driver_7iron_short_chip_shot():
 
 
 def play_driver_7iron_short_putt_shot():
-    print_slow(f"Nice putt , that's a tap in for a 5. On a par 4 that means your score in +1.")
+    print_slow(f"Nice putt , that's a tap in for a 5. On a par 4 that means your score in +1.\n")
     
     play_driver_7iron_short_putt_choice = get_choice(
         "Press 1 to submit score of +1 and head back to Clubhouse.\nPress 2 to end game without submitting your score.\n"
@@ -335,6 +344,7 @@ def play_driver_7iron_short_putt_shot():
 
 def play_8iron_shot():
     print_slow("Nice shot! That ball came out smooth from the rough!\n")
+    time.sleep(1.0)
     print_slow("You're pin high on the right side of the green, on the fringe.")
     print_slow("If you chip the ball you avoid undulations ahead of the hole but risk hitting it short or long.")
     print_slow("If you choose to putt, you need to read the green carefully\n")
@@ -374,7 +384,7 @@ def play_driver_8iron_chip_shot():
 
 def play_driver_8iron_putt_shot():
     print_slow("Nice putt, that was very close!")
-    print_slow("That's just a tap in for par.\n")
+    print_slow("That's just a tap in for par, well done!\n")
 
     play_driver_8iron_putt_choice = get_choice(
         "Press 1 to submit score of par and head back to Clubhouse.\nPress 2 to exit game without submitting your score.\n"
@@ -416,6 +426,7 @@ def play_iron_shot():
 
 def play_iron_wood():
     print_slow("Oh no, wind is taking it to the left...\n")
+    time.sleep(1.0)
     print_slow("Unfortunately it looks like you're in the steep bunker.")
     print_slow("This bunker is really hard to get out of. If you aim for the hole and hit it well, you might just be able to get up.")
     print_slow("You're other option, which is a safer one, is to aim for the fringe to your right side.\n")
@@ -475,7 +486,7 @@ def play_iron_wood_green_again():
 
 def play_iron_wood_green_fringe():
     print_slow("Good choice!\n")
-    print_slow("So, now your about 50 meters from the hole. If you're short it will come back to you because of it's slope so it's better to be a bit long.")
+    print_slow("So, now your about 50 meters from the hole. If you're short it will come back to you because of the green's slope so it's better to be a bit long.")
     print_slow("Would you like to chip with a wedge or hit a 'bump and run' with your 7 iron?")
 
     play_iron_wood_green_fringe_choice = get_choice(
@@ -494,9 +505,11 @@ def play_iron_wood_green_fringe():
 
 def play_iron_wood_green_fringe_chip():
     print_slow("You got the perfect amount of length and spin on that shot!")
+    time.sleep(1.0)
     print_slow("It ended up just 1 meter from the hole on the backside of it.\n")
     print_slow("But there's still work to do, theese putts are sometimes the hardest.")
     print_slow("Concentrate, and put it in the hole.\n")
+    time.sleep(1.0)
 
     play_iron_wood_green_fringe_chip_choice = get_choice(
         "Press 1 to submit score of +2 and head back to Clubhouse.\nPress 2 to exit game without submitting your score.\n"
@@ -537,6 +550,7 @@ def play_iron_wood_green_fringe_7iron():
 
 def play_iron_wood_fringe():
     print_slow(f"Good choice!")
+    time.sleep(1.0)
     print_slow("So, now your about 50 meters from the hole. If you're short it will come back to you because of it's slope so it's better to be a bit long.")
     print_slow("Would you like to chip with a wedge or hit a 'bump and run' with your 7 iron?")
 
@@ -598,6 +612,7 @@ def play_iron_wood_fringe_7iron():
 
 def play_iron_layup():
     print_slow(f"Good choice.\n")
+    time.sleep(1.0)
     print_slow("That went further than I thought it would, you're on the fringe!")
     print_slow("You can choose to chip this ball or putt, but the green is sloping back towards you so you can't be short.\n")
 
@@ -619,6 +634,7 @@ def play_iron_layup_chip():
     print_slow("Good chip, it stayed just one meter from the hole!\n")
     print_slow("But there's still work to do, theese putts are sometimes the hardest.")
     print_slow("Concentrate, and put it in the hole.\n")
+    time.sleep(1.0)
 
     play_iron_layup_chip_choice = get_choice(
         "Press 1 to submit your score par and head back to Clubhouse.\nPress 2 to exit game without submitting your score.\n"
@@ -639,9 +655,7 @@ def play_iron_layup_chip():
 
 def play_iron_layup_putt():
     print_slow("That's how it's done! Right in the hole for BIRDIE!")
-    print_slow(f"Well played, safe and sound from tee to hole. True pro!\n")
-    print_slow("Press 1 to submit score.")
-    print_slow("Press 2 to end game.")
+    print_slow("Well played, safe and sound from tee to hole. True pro!\n")
 
     play_iron_layup_putt_choice = get_choice(
         "Press 1 to submit your score of -1 and head back to Clubhouse.\nPress 2 to exit game without submitting your score.\n"
