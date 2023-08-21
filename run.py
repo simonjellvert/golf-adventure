@@ -43,9 +43,7 @@ def get_player_name():
 
     if player_name is None:
         while True:
-            
             name = input("\nEnter your name: ")
-
             if valid_name(name):
                 clear_terminal()
                 print_slow(
@@ -140,7 +138,7 @@ def rule_book():
 
 def clubhouse():
     """
-    Function within rule_book and leaderboard 
+    Function within rule_book and leaderboard
     to let the player return to the menu
     """
     print("\nPress 1 to return to Clubhouse")
@@ -198,7 +196,6 @@ def check_leaderboard():
     for entry in leaderboard:
         name = entry['Name']
         score_str = entry['Score']
-        
         try:
             score = int(score_str)
             if name in aggregated_scores:
@@ -263,9 +260,7 @@ def get_choice(prompt):
     """
     Function to try the players choice on each shot
     """
-    
     print_slow(prompt)
-    
     try:
         index = int(input())
         return index
@@ -322,7 +317,6 @@ def play_7_iron_shot():
     - Runs the choice through get_choice function and return
     next function
     """
-
     print_slow(
         "Here's your 7 iron. Good luck!\n"
         )
@@ -347,7 +341,6 @@ def play_7_iron_shot():
         "\nPress 0 to exit game.\n"
         "\nEnter here: "
         )
-    
     if driver_7iron_choice == 1:    # Aim for the hole
         clear_terminal()
         play_driver_7iron_hole_shot()
@@ -381,7 +374,6 @@ def play_driver_7iron_hole_shot():
         "Press 2 to end game without submitting your score.\n"
         "\nEnter here: "
         )
-    
     if driver_7iron_hole_choice == 1:
         update_leaderboard(0)
         print_slow("\nUpdating leaderboard...")
@@ -486,7 +478,6 @@ def play_driver_7iron_short_putt_shot():
     print_slow(
         "Nice putt , that's a tap in for a 5. "
         "On a par 4 that means your score in +1.\n")
-    
     play_driver_7iron_short_putt_choice = get_choice(
         "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
         "Press 2 to end game without submitting your score.\n"
@@ -577,7 +568,7 @@ def play_driver_8iron_chip_shot():
         time.sleep(1.0)
         clear_terminal()
         clubhouse()
-    elif driver_8iron_chip_choice == 2: # Leave game
+    elif driver_8iron_chip_choice == 2:     # Leave game
         clear_terminal()
         print(
             "\nThank you for giving me the chance to caddie for you. "
@@ -600,7 +591,7 @@ def play_driver_8iron_putt_shot():
         )
 
     play_driver_8iron_putt_choice = get_choice(
-        "\Press 1 to submit score of par and head back to Clubhouse.\n"
+        "\nPress 1 to submit score of par and head back to Clubhouse.\n"
         "Press 2 to exit game without submitting your score.\n"
         "\nEnter here: "
     )
