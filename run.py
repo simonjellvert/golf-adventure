@@ -128,31 +128,40 @@ def update_leaderboard(score):
     Function to update leaderboard
     """
     sheet = SHEET.get_worksheet(0)
-    row_data = [player_name, str(score)]
+    row_data = [player_name, int(score)]
     sheet.append_row(row_data)
 
 
 def check_leaderboard():
     sheet = SHEET.get_worksheet(0)
     leaderboard = sheet.get_all_records()
+
     if not leaderboard:
         print("The leaderboard is empty.\n")
-    else:
-        aggregated_scores = {}
-        for entry in leaderboard:
-            name = entry['Name']
-            score = int(entry['Score'])
+        return
+
+    aggregated_scores = {}
+
+    for entry in leaderboard:
+        name = entry['Name']
+        score_str = entry['Score']
+        
+        try:
+            score = int(score_str)
             if name in aggregated_scores:
                 aggregated_scores[name] += score
             else:
                 aggregated_scores[name] = score
+        except ValueError:
+            print(f"Unable to convert score value for {name} to int: {score_str}")
+            continue
 
-        sorted_leaderboard = sorted(aggregated_scores.items(), key=lambda x: x[1])
+    sorted_leaderboard = sorted(aggregated_scores.items(), key=lambda x: x[1])
 
-        print("\nLeaderboard\n")
-        for i, (name, score) in enumerate(sorted_leaderboard, start=1):
-            print(f"{i}. {name} - Score: {score}")
-        print()
+    print("\nLeaderboard\n")
+    for i, (name, score) in enumerate(sorted_leaderboard[:5], start=1):
+        print(f"{i}. {name} - Score: {score}")
+    clubhouse()
 
 
 def play_hole():
@@ -639,6 +648,7 @@ def main():
 
     menu()
     rule_book()
+    check_leaderboard()
     play_hole()
 
 
