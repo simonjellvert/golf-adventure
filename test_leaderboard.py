@@ -29,35 +29,33 @@ def update_leaderboard(score):
 def check_leaderboard():
     sheet = SHEET.get_worksheet(0)
     leaderboard = sheet.get_all_records()
+
     if not leaderboard:
         print("The leaderboard is empty.\n")
-    else:
-        aggregated_scores = {}
-        for entry in leaderboard:
-            name = entry['Name']
-            score_str = entry['Score']
-            print(f"Raw Score value for {name}: {score_str}")
-            try:
-                score = int(score_str)
-                if name in aggregated_scores:
-                    aggregated_scores[name] += score
-                else:
-                    aggregated_scores[name] = score
-            except ValueError:
-                print(f"Unable to convert score value for {name} to int: {score_str}")
-                continue
+        return
 
-            # if name in aggregated_scores:
-                # aggregated_scores[name] += score
-            # else:
-                # aggregated_scores[name] = score
+    aggregated_scores = {}
 
-        sorted_leaderboard = sorted(aggregated_scores.items(), key=lambda x: x[1])
+    for entry in leaderboard:
+        name = entry['Name']
+        score_str = entry['Score']
+        
+        try:
+            score = int(score_str)
+            if name in aggregated_scores:
+                aggregated_scores[name] += score
+            else:
+                aggregated_scores[name] = score
+        except ValueError:
+            print(f"Unable to convert score value for {name} to int: {score_str}")
+            continue
 
-        print("\nLeaderboard\n")
-        for i, (name, score) in enumerate(sorted_leaderboard, start=1):
-            print(f"{i}. {name} - Score: {score}")
-        print()
+    sorted_leaderboard = sorted(aggregated_scores.items(), key=lambda x: x[1])
+
+    print("\nLeaderboard\n")
+    for i, (name, score) in enumerate(sorted_leaderboard[:5], start=1):
+        print(f"{i}. {name} - Score: {score}")
+    print()
 
 
 check_leaderboard() 
