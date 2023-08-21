@@ -2,6 +2,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 import time
 import os
+from blessed import Terminal
+import sys
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -19,6 +22,15 @@ def clear_terminal():
     os.system('clear')
 
 
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.03)
+
+
+term = Terminal()
+
 player_name = None
 
 
@@ -35,7 +47,7 @@ def get_player_name():
 
             if valid_name(name):
                 clear_terminal()
-                print(f"\nThank you {name}, great to meet you!\n") # Make text green
+                print(term.green + f"\nThank you {name}, great to meet you!\n" + term.normal) # Make text green
                 player_name = name
                 break
 
@@ -652,8 +664,9 @@ def main():
     play_hole()
 
 
-print("Welcome to this little game called Random Round of Golf!\n")
-print("I'm Billy, your caddie for the day.\n")
-print("Before we tee off, what name should I put in the scorecard?")
-print("(Make sure you only use letters, no whitespaces, when entering your name)\n")
+print_slow(term.green + "Welcome to this little game called Random Round of Golf!\n" + term.normal)
+print_slow("I'm Billy, your caddie for the day.\n")
+time.sleep(2.0)
+print_slow("Before we tee off, what name should I put in the scorecard?")
+print_slow("(Make sure you only use letters, no whitespaces, when entering your name)\n")
 main()
