@@ -30,7 +30,7 @@ When the player have entered a valid name it will clear the terminal and thank t
 
 For UX I've added the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
-![Screenshot of welcome message](assets/)
+![Screenshot of welcome message](assets/welcome_page.png)
 
 - ##### Clubhouse.
 
