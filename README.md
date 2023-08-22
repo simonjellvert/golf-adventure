@@ -33,10 +33,37 @@ For UX I've added the time.sleep function to make the letters appear one after e
 ![Screenshot of welcome message](assets/welcome_page.png)
 
 - ##### Clubhouse.
+When entered a valid name on the welcome message, the terminal will clear screen and thank the player for submitting name along with the clubhouse menu options. The welcome message is printed in green along with the inserted name.
 
+In the clubhouse menu the player is given 4 options: either to start the game by entering keyboard number 1 + enter-key, check out the leaderboard by pressing 2 +enter-key, read the rule book of the game by pressing 3+enter-key or leave the game by pressing 4+enter-key.
+If the player use an invalid keyboard option a error message will appear in red colored text to make it obvious that something went wrong and the player will have to try again. 
+When entering a valid option the terminal is cleared, then printing a message of "Loading leaderboard..." or "Launching game..." etc. Then the terminal is cleared again before showing the players option content.
+
+![Screenshot of clubhouse menu](assets/clubhouse.png)
 
 - ##### Start Game.
+Before the game starts a print message is shown as "Launching the game...", then the terminal is cleared before the caddie gives the player instructions about the hole and what options for the first shot the player can choose between.
+The player chooses the next shot by using the numeric keyboard and enter-key. On each shot options the player can choose to leave the game. If entering a letter or a symbol an error message will appear in red text telling the player something went wrong and asks to enter option again.
 
+The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
+
+![Screenshot of first shot](assets/play_function.png)
+
+- ##### Next shot.
+After choosing a shot, the caddie will present it's outcome followed by instructions for the next shot and it's options. This procedure will continue until the ball is in the hole.
+
+The player chooses the next shot by using the numeric keyboard and enter-key. On each shot options the player can choose to leave the game. If entering a letter or a symbol an error message will appear in red text telling the player something went wrong and asks to enter option again.
+
+The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
+
+![Screenshot of next shot](assets/play_second_shot.png)
+
+- ##### Submit score or leave game.
+When the ball is in the hole, the caddie will present the score for the round and ask the player if it wants to submit score and head back to the clubhouse or leave the game without submitting score. 
+
+The player chooses it's option using the numeric keyboard and enter-key. If entering a letter or a symbol an error message will appear in red text telling the player something went wrong and asks to enter option again.
+
+The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
 - ##### Leaderboard.
 
