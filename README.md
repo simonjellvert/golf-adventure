@@ -150,6 +150,8 @@ In this flowchart you can see the logic that i tried to apply to the game.
     - Fixed by turning both player name and score to strings and making sure both columns in the spreadsheet is formatted to text, not numbers.
 - Print messages too long for terminal in browser.
     - Fixed by adding new lines where needed.
+- When entering a number (other than optional) in shots function the rule book appeared.
+    - Fixed by adding a while loop in shot function.
 
 - ##### Unsolved bugs
 No unsolved bugs.
