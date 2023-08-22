@@ -35,7 +35,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.03)
+        time.sleep(0.0)     #0.03
 
 
 term = Terminal()   # Code from CI mentor Alexsei Konovalov
@@ -507,7 +507,6 @@ def play_driver_7iron_short_putt_shot():
     print_slow(
         "\nNice putt , that's a tap in for a 5. "
         "On a par 4 that means your score in +1.\n")
-    
     while True:
         play_driver_7iron_short_putt_choice = get_choice(
             "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
