@@ -212,7 +212,7 @@ def check_leaderboard():
 
     print_slow(term.green + "\nLeaderboard\n" + term.normal)
     for i, (name, score) in enumerate(sorted_leaderboard[:5], start=1):
-        print(f"{i}. {name} - Score: {score}")
+        print(f"\n{i}. {name} - Score: {score}")
     clubhouse()
 
 
