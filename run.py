@@ -35,7 +35,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.0)     #0.03
+        time.sleep(0.03)
 
 
 term = Terminal()   # Code from CI mentor Alexsei Konovalov
@@ -427,9 +427,9 @@ def play_driver_7iron_short_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "\nNow, if you choose to chip there is a possibility that you "
-        "hit it too far and roll of the green, \nbut on the other hand "
-        "- if you hit it well you avoid undulations ahead of the hole.\n"
+        "\nNow, if you choose to chip there is a possibility that you \n"
+        "hit it too far and roll of the green, but on the other hand "
+        "- if you \nhit it well you avoid undulations ahead of the hole.\n"
         "If you choose to put, you need to read the line carefully.\n")
 
     while True:
@@ -547,7 +547,7 @@ def play_8iron_shot():
     time.sleep(1.0)
     print_slow(
         "\nYou're pin high on the right side of the green, on the fringe.\n"
-        "If you chip the ball you avoid undulations ahead of the hole "
+        "If you chip the ball you avoid undulations ahead of the hole \n"
         "but risk hitting it short or long.\n"
         "If you choose to putt, you need to read the green carefully\n"
         )
@@ -666,9 +666,9 @@ def play_iron_shot():
         "that went straight down the middle of the fairway!\n"
         "\nNow you have 180 meters to the green, that's quite long.\n"
         "\nOn the left side of the green there is a steep bunker, "
-        "and there's another one on the back side of the green.\n"
+        "and there's \nanother one on the back side of the green.\n"
         "\nYou can either choose to play a fairway wood that should "
-        "take you to the green but risks ending up in one of the bunkers.\n"
+        "take you \nto the green but risks ending up in one of the bunkers.\n"
         "Or you can play it safe and lay up for a chip shot.\n"
         )
 
@@ -709,9 +709,9 @@ def play_iron_wood():
     print_slow(
         "\nUnfortunately it looks like you're in the steep bunker.\n"
         "\nThis bunker is really hard to get out of. If you aim for "
-        "the hole and hit it well, you might just be able to get up.\n"
+        "the hole \nand hit it well, you might just be able to get up.\n"
         "You're other option, which is a safer one, "
-        "is to aim for the fringe to your right side.\n"
+        "is to aim for the fringe \nto your right side.\n"
         )
 
     while True:
@@ -782,7 +782,7 @@ def play_iron_wood_green_again():
 
     print_slow(
         "\nWell done, you managed to get out of there, "
-        "it's on the green but far away from the hole.\n"
+        "it's on the green \nbut far away from the hole.\n"
         "\nI'll set you up for a 2-putt and a score of 6, "
         "on a par 4 that means +2\n"
         )
@@ -824,7 +824,7 @@ def play_iron_wood_green_fringe():
         "\nGood choice!\n"
         "\nSo, now your about 50 meters from the hole.\n"
         "If you're short it will come back to you because "
-        "of the green's slope so it's better to be a bit long.\n"
+        "of the green's slope \nso it's better to be a bit long.\n"
         "\nWould you like to chip with a wedge or "
         'hit a "bump and run" with your 7 iron?\n'
         )
@@ -951,7 +951,7 @@ def play_iron_wood_fringe():
     print_slow(
         "\nSo, now your about 50 meters from the hole.\n"
         "\nIf you're short it will come back to you because of it's "
-        "slope so it's better to be a bit long.\n"
+        "slope \nso it's better to be a bit long.\n"
         "\nWould you like to chip with a wedge or hit a "
         '"bump and run" with your 7 iron?\n'
         )
@@ -967,7 +967,7 @@ def play_iron_wood_fringe():
         if play_iron_wood_fringe_choice == 1:   # Play wedge
             clear_terminal()
             play_iron_wood_fringe_wedge()
-        elif play_iron_wood_fringe_choice == 2:     # Bump and run
+        elif play_iron_wood_fringe_choice == 7:     # Bump and run
             clear_terminal()
             play_iron_wood_fringe_7iron()
         elif play_iron_wood_fringe_choice == 0:     # Leave
@@ -1064,7 +1064,7 @@ def play_iron_layup():
     print_slow(
         "\nThat went further than I thought it would, you're on the fringe!\n"
         "\nYou can choose to chip this ball or putt, but the green is "
-        "sloping back towards you so you can't be short.\n"
+        "sloping \nback towards you so you can't be short.\n"
         )
 
     while True:
@@ -1101,7 +1101,7 @@ def play_iron_layup_chip():
         "\nGood chip, it stayed just one meter from the hole!\n"
         "\nBut there's still work to do, "
         "these putts are sometimes the hardest.\n"
-        "\nConcentrate, and put it in the hole.\n"
+        "Concentrate, and put it in the hole.\n"
         )
     time.sleep(1.0)
 
