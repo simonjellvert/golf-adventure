@@ -23,7 +23,7 @@ def clear_terminal():
     Clears terminal for better UX
     Code retrieved from Stack Overflow
     """
-    os.system('clear')
+    os.system('cls' if os.name=='nt' else 'clear')
 
 
 def print_slow(str):   
@@ -243,7 +243,7 @@ def play_hole():
         "if you hit it there you might have to \njust lay up.\n"
         "\nYou can either choose to hit a driver, with the risk "
         "of ending up \nin one of the hazards. Or you can choose "
-        "the play a safe shot, which is a long iron.\n"
+        "the play a safe shot, \nwhich is a long iron.\n"
         )
 
     first_shot = get_choice(
@@ -292,11 +292,11 @@ def play_driver_shot():
         )
     time.sleep(1.0)
     print_slow(
-        "\nYou're now 125 meters away from the hole. There's a bunker "
-        "on the back side of the green and on the left side, the "
+        "\nYou're now 125 meters away from the hole. \nThere's a bunker "
+        "on the back side of the green and on the left side, \nthe "
         "left one is really steep and is hard to get out of.\n"
         "You normally play your 7 iron from this distance, "
-        "but maybe it's better to play the 8 iron, "
+        "\nbut maybe it's better to play the 8 iron, "
         "which goes shorter?\n"
         )
 
