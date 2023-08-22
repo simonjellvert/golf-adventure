@@ -1,6 +1,8 @@
 # Golf Adventure
 [Gold Adventure](xxxxx) is a short version for a round of golf and are played in a python terminal. The player will have to choose between two options on each shot, both choices have different outcome. So the player has to guess which shot will get the ball closer to the hole, to receive the lowest possible score.
 
+![Screenshot of mock up generator](assets/mock_up_generator_pp3.png)
+
 ---
 
 ### How to use    
