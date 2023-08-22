@@ -90,7 +90,7 @@ def menu():
             "\n* Check out the rule book of Random Golf? Press 3\n"
             "\n* Do you want to come back later? Press 4\n"
             )
-        menu_choice = input("Enter here: ").strip()
+        menu_choice = input(term.green + "Enter here: " + term.normal).strip()
 
         try:
             index = int(menu_choice)
@@ -253,7 +253,7 @@ def play_hole():
             "\nPress 1 for driver.\n"
             "Press 2 for iron.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
             )
 
         if first_shot == 1:     # Driver
@@ -310,7 +310,7 @@ def play_driver_shot():
             "\nPress 7 for 7 iron.\n"
             "Press 8 for 8 iron.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
             )
 
         if driver_choice == 7:      # 7 iron
@@ -357,7 +357,7 @@ def play_7_iron_shot():
             "\nPress 1 to aim for the hole.\n"
             "Press 2 for the shorter shot."
             "\nPress 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
             )
         if driver_7iron_choice == 1:    # Aim for the hole
             clear_terminal()
@@ -393,7 +393,7 @@ def play_driver_7iron_hole_shot():
         driver_7iron_hole_choice = get_choice(
             "\nPress 1 to submit score of par and head back to Clubhouse.\n"
             "Press 2 to end game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
             )
         if driver_7iron_hole_choice == 1:
             update_leaderboard(0)
@@ -437,7 +437,7 @@ def play_driver_7iron_short_shot():
             "\nPress 1 to chip the ball.\n"
             "Press 2 to putt the ball.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if driver_7iron_short_choice == 1:  # Chip the ball
@@ -476,7 +476,7 @@ def play_driver_7iron_short_chip_shot():
         play_driver_7iron_short_chip_choice = get_choice(
             "\nPress 1 to submit score and head back to Clubhouse.\n"
             "Press 2 to end game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_driver_7iron_short_chip_choice == 1:    # Submit score
@@ -511,7 +511,7 @@ def play_driver_7iron_short_putt_shot():
         play_driver_7iron_short_putt_choice = get_choice(
             "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
             "Press 2 to end game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_driver_7iron_short_putt_choice == 1:    # Enter score
@@ -557,7 +557,7 @@ def play_8iron_shot():
             "\nPress 1 to chip the ball.\n"
             "Press 2 to putt.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
             )
 
         if driver_8iron_choice == 1:    # Chip ball
@@ -595,7 +595,7 @@ def play_driver_8iron_chip_shot():
         driver_8iron_chip_choice = get_choice(
             "\nPress 1 to submit score of -1 and head back to Clubhouse.\n"
             "Press 2 to end game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if driver_8iron_chip_choice == 1:   # Enter Score
@@ -632,7 +632,7 @@ def play_driver_8iron_putt_shot():
         play_driver_8iron_putt_choice = get_choice(
             "\nPress 1 to submit score of par and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_driver_8iron_putt_choice == 1:  # Enter score
@@ -677,7 +677,7 @@ def play_iron_shot():
             "\nPress 1 to hit a fairway wood.\n"
             "Press 2 to lay up.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_choice == 1:   # Fairway wood
@@ -719,7 +719,7 @@ def play_iron_wood():
             "\nPress 1 to aim for the green.\n"
             "Press 2 to aim for the fringe.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_choice == 1:  # Aim for the green
@@ -755,7 +755,7 @@ def play_iron_wood_green():
             "\nPress 1 to try again.\n"
             "Press 2 to aim for the fringe.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_green_choice == 1:    # Another try
@@ -791,7 +791,7 @@ def play_iron_wood_green_again():
         play_iron_wood_green_again_choice = get_choice(
             "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_green_again_choice == 1:  # Submit score
@@ -834,7 +834,7 @@ def play_iron_wood_green_fringe():
             "\nPress 1 for wedge.\n"
             "Press 7 for 7 iron.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_green_fringe_choice == 1:     # Play wedge
@@ -875,7 +875,7 @@ def play_iron_wood_green_fringe_chip():
         play_iron_wood_green_fringe_chip_choice = get_choice(
             "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_green_fringe_chip_choice == 1:    # Submit score
@@ -913,7 +913,7 @@ def play_iron_wood_green_fringe_7iron():
         play_iron_wood_green_fringe_7iron_choice = get_choice(
             "\nPress 1 to submit score of +1 and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_green_fringe_7iron_choice == 1:   # Submit
@@ -961,7 +961,7 @@ def play_iron_wood_fringe():
             "\nPress 1 for wedge.\n"
             "Press 7 for iron.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_fringe_choice == 1:   # Play wedge
@@ -997,7 +997,7 @@ def play_iron_wood_fringe_wedge():
         play_iron_wood_fringe_wedge_choice = get_choice(
             "\nPress 1 to submit score of +2 and head back to Clubhouse.\n"
             "Press 2 to end game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_fringe_wedge_choice == 1:
@@ -1036,7 +1036,7 @@ def play_iron_wood_fringe_7iron():
             "\nPress 1 to submit your score of +1 "
             "and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_wood_fringe_7iron_choice == 1:     # Submit
@@ -1072,7 +1072,7 @@ def play_iron_layup():
             "\nPress 1 to chip the ball.\n"
             "Press 2 to putt.\n"
             "Press 0 to exit game.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_layup_choice == 1:     # Chip ball
@@ -1109,7 +1109,7 @@ def play_iron_layup_chip():
         play_iron_layup_chip_choice = get_choice(
             "\nPress 1 to submit your score par and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nEnter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_layup_chip_choice == 1:    # Submit
@@ -1146,7 +1146,7 @@ def play_iron_layup_putt():
             "\nPress 1 to submit your score of -1 and "
             "head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
-            "\nenter here: "
+            + term.green + "\nEnter here: " + term.normal
         )
 
         if play_iron_layup_putt_choice == 1:    # Submit
