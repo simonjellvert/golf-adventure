@@ -6,7 +6,7 @@
 ### How to use    
 1. To be able to play the game, you have to click this [link](xxxxx), or copy `https://www.....` and paste into your browser's address bar and press enter.
 2. When the page is loaded, click "RUN PROGRAM", and the game will load.
-3. Enter your name when told to, use only letters(no whitespaces) and press Enter.
+3. Enter your name when told to, use only letters(no whitespace) and press Enter.
 4. Now you'll be taken to the clubhouse, where you can either choose to play game, check out the leaderboard, read the rule book or leave the game. Navigate using your keyboards numbers 1-4 and hit enter.
 5. When start a game, your caddie will give you instructions for the hole and which options that are available for the upcoming shot. When told to enter your choice, use your keyboards number and hit enter. The caddie will give you new instructions and options for the next shot. The caddie will do so until the ball is in the hole. You can choose to leave the game at any time, just follow the instructions.
 6. When the ball is in the hole, the caddie presents your result and you can choose to submit your score and head back to the clubhouse or you can choose to leave the game without submitting your score. Follow the instructions and use your keyboards numbers and hit enter to make your choice. A Google spreadsheet is automatically collecting your score when submitted.
@@ -25,11 +25,12 @@
 - ##### Welcome message.
 When starting the game the player will receive a welcome message where the caddie presents himself and the player is asked to enter it's name.
 For a better UX I've added green color to the welcome message, using the blessed package.
-When entering the player name the player is asked to provide it with only letters, no whitespaces. Or else it will return a Invalid name error and ask the player to give it another try. The error message is red, to make it more obvious that something went wrong.
+When entering the player name the player is asked to provide it with only letters, no whitespace. Or else it will return a Invalid name error and ask the player to give it another try. The error message is red, to make it more obvious that something went wrong.
 When the player have entered a valid name it will clear the terminal and thank the player for submitting a name and send them to the "clubhouse".
 
 For UX I've added the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
+![Screenshot of welcome message](assets/)
 
 - ##### Clubhouse.
 

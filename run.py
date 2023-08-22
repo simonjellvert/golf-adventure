@@ -23,12 +23,12 @@ def clear_terminal():
     Clears terminal for better UX
     Code retrieved from Stack Overflow
     """
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def print_slow(str):   
+def print_slow(str):
     """
-    Function for printing text slow. 
+    Function for printing text slow.
     Printing each letter set to 0.03s
     Code retrieved from Stack Overflow
     """
