@@ -1,12 +1,12 @@
 # Golf Adventure
-[Gold Adventure](xxxxx) is a short version for a round of golf and are played in a python terminal. The player will have to choose between two options on each shot, both choices have different outcome. So the player has to guess which shot will get the ball closer to the hole, to receive the lowest possible score.
+[Gold Adventure](https://golf-adventure-52d6e4b341ea.herokuapp.com/) is a short version for a round of golf and are played in a python terminal. The player will have to choose between two options on each shot, both choices have different outcome. So the player has to guess which shot will get the ball closer to the hole, to receive the lowest possible score.
 
 ![Screenshot of mock up generator](assets/mock_up_generator_pp3.png)
 
 ---
 
 ### How to use    
-1. To be able to play the game, you have to click this [link](xxxxx), or copy `https://www.....` and paste into your browser's address bar and press enter.
+1. To be able to play the game, you have to click this [link](https://golf-adventure-52d6e4b341ea.herokuapp.com/), or copy `https://golf-adventure-52d6e4b341ea.herokuapp.com/` and paste into your browser's address bar and press enter.
 2. When the page is loaded, click "RUN PROGRAM", and the game will load.
 3. Enter your name when told to, use only letters(no whitespace) and press Enter.
 4. Now you'll be taken to the clubhouse, where you can either choose to play game, check out the leaderboard, read the rule book or leave the game. Navigate using your keyboards numbers 1-4 and hit enter.
@@ -184,7 +184,7 @@ The code was run through [CI PEP8 online validator](https://pep8ci.herokuapp.com
 ---
 
 ### Deployment
-The game is deployed on Heroku, and can be accessed through this link: [Golf Adventure](xxxxxxx).
+The game is deployed on Heroku, and can be accessed through this link: [Golf Adventure](https://golf-adventure-52d6e4b341ea.herokuapp.com/).
 
 **Steps to deployment:***
 
