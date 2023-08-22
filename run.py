@@ -26,6 +26,16 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def logotype():
+    """
+    Prints logotype at welcome message
+    """
+    file_path = 'text_files/logotype.txt'
+    with open(file_path, 'r') as file:
+        content_logo = file.read()
+    print(term.green + content_logo + term.normal)
+
+
 def print_slow(str):
     """
     Function for printing text slow.
@@ -1180,11 +1190,14 @@ def main():
 
 print_slow(     # Part 1 welcome message
     term.green + "Welcome to this little game called "
-    "Random Round of Golf!\n" + term.normal +
-    "\nI'm Billy, your caddie for the day.\n"
+    "Random Round of Golf!\n" + term.normal
     )
+logotype()
 time.sleep(1.0)
 print_slow(     # Part 2 Welcome message
+    "\nI'm Billy, your caddie for the day.\n"
+    )
+print_slow(
     "\nBefore we tee off, what name should I put in the scorecard?\n"
     + term.red + "(Make sure you only use letters, "
     "no whitespaces, when entering your name)\n" + term.normal
