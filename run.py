@@ -52,7 +52,7 @@ def get_player_name():
 
     if player_name is None:
         while True:
-            name = input("\nEnter your name: ")
+            name = input(term.green + "\nEnter your name: " + term.normal)
             if valid_name(name):
                 clear_terminal()
                 print_slow(
