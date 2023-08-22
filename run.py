@@ -18,15 +18,24 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('results_golf-adventure')
 
 
-def clear_terminal():   # Code retrieved from Stack Overflow
+def clear_terminal():
+    """
+    Clears terminal for better UX
+    Code retrieved from Stack Overflow
+    """
     os.system('clear')
 
 
-def print_slow(str):    # Code retrieved from Stack Overflow
+def print_slow(str):   
+    """
+    Function for printing text slow. 
+    Printing each letter set to 0.03s
+    Code retrieved from Stack Overflow
+    """
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.00)    # 0.03
+        time.sleep(0.03)
 
 
 term = Terminal()   # Code from CI mentor Alexsei Konovalov
@@ -228,12 +237,12 @@ def play_hole():
     print_slow(
         "\nThis is the Random Golf hole, it's a 350 meters long par 4.\n"
         "\nThe left side is out of bounce, which means if you hit "
-        "it there you are going to need to hit your 3rd "
+        "it there \nyou are going to need to hit your 3rd "
         "shot from the tee box.\n"
         "On the right side there's a grove, "
-        "if you hit it there you might have to just lay up.\n"
+        "if you hit it there you might have to \njust lay up.\n"
         "\nYou can either choose to hit a driver, with the risk "
-        "of ending up in one of the hazards. Or you can choose "
+        "of ending up \nin one of the hazards. Or you can choose "
         "the play a safe shot, which is a long iron.\n"
         )
 
