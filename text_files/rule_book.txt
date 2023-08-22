@@ -7,7 +7,7 @@ it can be to play driver or iron, chip or putt, etc.
 You need to guess which shot is the best, 
 and when you enter your choice the fall out is presented. 
 
-The same procedure applys to the next shot and the next,
+The same procedure applies to the next shot and the next,
 until the ball is in the hole. 
 
 Good luck and have fun!
