@@ -1,7 +1,7 @@
 # Golf Adventure
 [Gold Adventure](https://golf-adventure-52d6e4b341ea.herokuapp.com/) is a short version for a round of golf and are played in a python terminal. The player will have to choose between two options on each shot, both choices have different outcome. So the player has to guess which shot will get the ball closer to the hole, to receive the lowest possible score.
 
-![Screenshot of mock up generator](assets/mock_up_generator_pp3.png)
+![Screenshot of mock up generator](assets/mockup_pp3.png)
 
 ---
 
@@ -25,14 +25,14 @@
 
 ### Features
 - ##### Welcome message.
-When starting the game the player will receive a welcome message where the caddie presents himself and the player is asked to enter it's name.
-For a better UX I've added green color to the welcome message, using the blessed package.
+When starting the game the player will receive a welcome message with the Random Round of Golf logotype and a presentation of the caddie. The player is also asked to enter it's name.
+For a better UX I've added green color to the welcome message and logotype, using the blessed package.
 When entering the player name the player is asked to provide it with only letters, no whitespace. Or else it will return a Invalid name error and ask the player to give it another try. The error message is red, to make it more obvious that something went wrong.
 When the player have entered a valid name it will clear the terminal and thank the player for submitting a name and send them to the "clubhouse".
 
 For UX I've added the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
-![Screenshot of welcome message]()
+![Screenshot of welcome message](assets/welcome_message.png)
 
 - ##### Clubhouse.
 When entered a valid name on the welcome message, the terminal will clear screen and thank the player for submitting name along with the clubhouse menu options. The welcome message is printed in green along with the inserted name.
@@ -47,7 +47,7 @@ When entering a valid option the terminal is cleared, then printing a message of
 Before the game starts a print message is shown as "Launching the game...", then the terminal is cleared before the caddie gives the player instructions about the hole and what options for the first shot the player can choose between.
 The player chooses the next shot by using the numeric keyboard and enter-key. On each shot options the player can choose to leave the game. If entering a letter or a symbol an error message will appear in red text telling the player something went wrong and asks to enter option again.
 
-The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
+The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along. The enter option text is colored green.
 
 ![Screenshot of first shot](assets/play_function.png)
 
@@ -57,7 +57,7 @@ The terminal will clear and show the outcome for this shot, or print a welcome b
 
 The player chooses the next shot by using the numeric keyboard and enter-key. On each shot options the player can choose to leave the game. If entering a letter or a symbol an error message will appear in red text telling the player something went wrong and asks to enter option again.
 
-The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
+The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along. The enter option text is colored green.
 
 ![Screenshot of next shot](assets/play_second_shot.png)
 
@@ -68,7 +68,7 @@ The player chooses it's option using the numeric keyboard and enter-key. If ente
 
 The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
-![Screenshot of submtting score or leave game](assets/submit_score.png)
+![Screenshot of submitting score or leave game](assets/submit_score.png)
 
 - ##### Leaderboard.
 In the clubhouse if the player chooses the check out the leaderboard, the terminal will clear and print "Loading leaderboard..." before showing it's content.
