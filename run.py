@@ -746,7 +746,8 @@ def play_iron_wood_green():
     """
 
     print_slow(
-        "\nOps.. It was close but it didn't reach all the way up. Good effort!\n"
+        "\nOps.. It was close but it didn't reach all the way up. "
+        "Good effort!\n"
         "\nDo you want to try again or do you want to play the safer shot?\n"
         )
 
@@ -936,7 +937,6 @@ def play_iron_wood_green_fringe_7iron():
             print(term.red + "Invalid choice. Try again!" + term.normal)
 
 
-
 def play_iron_wood_fringe():
     """
     - Tells the player the result of the  first choice,
@@ -1034,7 +1034,8 @@ def play_iron_wood_fringe_7iron():
 
     while True:
         play_iron_wood_fringe_7iron_choice = get_choice(
-            "\nPress 1 to submit your score of +1 and head back to Clubhouse.\n"
+            "\nPress 1 to submit your score of +1 "
+            "and head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
             "\nEnter here: "
         )
@@ -1143,7 +1144,8 @@ def play_iron_layup_putt():
 
     while True:
         play_iron_layup_putt_choice = get_choice(
-            "\nPress 1 to submit your score of -1 and head back to Clubhouse.\n"
+            "\nPress 1 to submit your score of -1 and "
+            "head back to Clubhouse.\n"
             "Press 2 to exit game without submitting your score.\n"
             "\nenter here: "
         )
