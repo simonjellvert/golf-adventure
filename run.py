@@ -173,15 +173,13 @@ def clubhouse():
             clear_terminal()
             menu()
         else:   # Error message if invalid input, asks player to try again
-            clear_terminal()
             print(
-                term.red + "\nInvalid choice. Try again!\n" + term.normal
+                term.red + "Invalid choice. Try again!\n" + term.normal
                 )
             clubhouse()
     except ValueError:  # Error message if invalid input, try again
-        clear_terminal()
         print(
-            term.red + "\nInvalid choice. Try again!\n" + term.normal
+            term.red + "Invalid choice. Try again!\n" + term.normal
             )
         clubhouse()
 
