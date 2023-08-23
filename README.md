@@ -152,6 +152,10 @@ In this flowchart you can see the logic that i tried to apply to the game.
     - Fixed by adding new lines where needed.
 - When entering a number (other than optional) in shots function the rule book appeared.
     - Fixed by adding a while loop in shot function.
+- Had troubles to get the check leaderboard function running, it sent me to the rule book function instead.
+    - Fixed by adding a test environment and ran the function isolated, and discovered that the check leaderboard function cleared before showing it's content and no option for turning back to clubhouse, instead it ran the next function on the menu, which was the rule book. Removed the clear terminal function and added the clubhouse function.
+- The menu function didn't show the right content accordingly to the players action, ran the rule book on both check leaderboard and leave game option.
+    - Located the problem by printing debug messages on each  option the narrow down the error. Added a try/except loop with breaks in between each option to solve the problem.
 
 - ##### Unsolved bugs
 No unsolved bugs.

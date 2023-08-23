@@ -162,7 +162,7 @@ def clubhouse():
     Function within rule_book and leaderboard
     to let the player return to the menu
     """
-    print("\nPress 1 to return to Clubhouse")
+    print(term.green + "\nPress 1 to return to Clubhouse" + term.normal)
     to_clubhouse = input("")
     try:
         index = int(to_clubhouse)
