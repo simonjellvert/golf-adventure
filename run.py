@@ -104,39 +104,39 @@ def menu():
 
         try:
             index = int(menu_choice)
-            if index == 1:
+            if index == 1:  # Sends player to the play hole function
                 clear_terminal()
                 print("\nLaunching game...\n")
                 time.sleep(1.0)
                 clear_terminal()
                 play_hole()
                 break
-            elif index == 2:
+            elif index == 2:    # Sends player to the leaderboard function
                 clear_terminal()
                 print("\nLoading leaderboard...\n")
                 time.sleep(1.0)
                 clear_terminal()
                 check_leaderboard()
                 break
-            elif index == 3:
+            elif index == 3:    # Sends player to read the rule book
                 clear_terminal()
                 print("\nLoading rule book...\n")
                 time.sleep(1.0)
                 clear_terminal()
                 rule_book()
                 break
-            elif index == 4:
+            elif index == 4:    # Exits game and sends player welcome message
                 clear_terminal()
                 print_slow(
                     "\nThank you for visiting, welcome back another time!"
                     )
                 exit()
-            else:
+            else:   # Sends error message to player
                 clear_terminal()
                 print(
                     term.red + "\nInvalid choice. Try again!\n" + term.normal
                     )
-        except ValueError:
+        except ValueError:  # Sends error message to player
             clear_terminal()
             print(
                 term.red + "\nInvalid choice. Try again!\n" + term.normal
@@ -166,19 +166,19 @@ def clubhouse():
     to_clubhouse = input("")
     try:
         index = int(to_clubhouse)
-        if index == 1:
+        if index == 1:  # Sends player back to the clubhouse
             clear_terminal()
             print("\nHeading back to the Clubhouse...\n")
             time.sleep(1.0)
             clear_terminal()
             menu()
-        else:
+        else:   # Error message if invalid input, asks player to try again
             clear_terminal()
             print(
                 term.red + "\nInvalid choice. Try again!\n" + term.normal
                 )
             clubhouse()
-    except ValueError:
+    except ValueError:  # Error message if invalid input, try again
         clear_terminal()
         print(
             term.red + "\nInvalid choice. Try again!\n" + term.normal
@@ -207,7 +207,7 @@ def check_leaderboard():
     sheet = SHEET.get_worksheet(0)
     leaderboard = sheet.get_all_records()
 
-    if not leaderboard:
+    if not leaderboard:     # If leaderboard is empty, print message
         print_slow("The leaderboard is empty.\n")
         clubhouse()
         return
@@ -233,7 +233,7 @@ def check_leaderboard():
 
     print_slow(term.green + "\nLeaderboard\n" + term.normal)
     for i, (name, score) in enumerate(sorted_leaderboard[:5], start=1):
-        print(f"\n{i}. {name} - Score: {score}")
+        print(f"\n{i}. {name} - Score: {score}")    # Prints sorted leaderboard
     clubhouse()
 
 
@@ -285,10 +285,10 @@ def get_choice(prompt):
     Function to try the players choice on each shot
     """
     print_slow(prompt)
-    try:
+    try:    # Checks for valid input
         index = int(input())
         return index
-    except ValueError:
+    except ValueError:  # Checks for invalid input
         print(term.red + "Invalid choice. Try again!" + term.normal)
         return get_choice(prompt)
 
@@ -405,13 +405,13 @@ def play_driver_7iron_hole_shot():
             "Press 2 to end game without submitting your score.\n"
             + term.green + "\nEnter here: " + term.normal
             )
-        if driver_7iron_hole_choice == 1:
+        if driver_7iron_hole_choice == 1:   # Submit score and show clubhouse
             update_leaderboard(0)
             print_slow("\nUpdating leaderboard...")
             time.sleep(1.0)
             clear_terminal()
             clubhouse()
-        elif driver_7iron_hole_choice == 2:
+        elif driver_7iron_hole_choice == 2:     # Leave game
             clear_terminal()
             print(
                 "\nThank you for giving me the chance to caddie for you. "
@@ -1010,13 +1010,13 @@ def play_iron_wood_fringe_wedge():
             + term.green + "\nEnter here: " + term.normal
         )
 
-        if play_iron_wood_fringe_wedge_choice == 1:
+        if play_iron_wood_fringe_wedge_choice == 1:     # Submits score
             update_leaderboard(2)
             print_slow("\nUpdating leaderboard...")
             time.sleep(1.0)
             clear_terminal()
             clubhouse()
-        elif play_iron_wood_fringe_wedge_choice == 2:
+        elif play_iron_wood_fringe_wedge_choice == 2:   # Leave game
             clear_terminal()
             print(
                 "\nThank you for giving me the chance to caddie for you. "
@@ -1198,7 +1198,7 @@ print_slow(     # Part 1 welcome message
     term.green + "Welcome to this little game called "
     "Random Round of Golf!\n" + term.normal
     )
-logotype()
+logotype()      # Runs logotype in welcome message
 time.sleep(1.0)
 print_slow(     # Part 2 Welcome message
     "\nI'm Billy, your caddie for the day.\n"
