@@ -97,7 +97,7 @@ If the player entered a invalid choice (letter or symbol) an error message will 
 When the player enters a invalid input, whether it's entering numbers or symbols in the name input, or letters or symbols in the play shot input, they receive a error message, telling the player that something went wrong and asks them to try again.
 The error message is red colored to make it obvious for the player.
 
-![Screenshot of error message](assets/invalid_choice.png)
+![Screenshot of error message](assets/invalid_choice1.png)
 
 - ##### Spreadsheet.
 When submitting score the linked spreadsheet is provided with players submitted name and the score for the round, the spreadsheet will hold and store data so that I can see how many players actually has played the game.
