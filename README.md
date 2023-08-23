@@ -41,7 +41,7 @@ In the clubhouse menu the player is given 4 options: either to start the game by
 If the player use an invalid keyboard option a error message will appear in red colored text to make it obvious that something went wrong and the player will have to try again. 
 When entering a valid option the terminal is cleared, then printing a message of "Loading leaderboard..." or "Launching game..." etc. Then the terminal is cleared again before showing the players option content.
 
-![Screenshot of clubhouse menu](assets/clubhouse.png)
+![Screenshot of clubhouse menu](assets/clubhouse1.png)
 
 - ##### Start Game.
 Before the game starts a print message is shown as "Launching the game...", then the terminal is cleared before the caddie gives the player instructions about the hole and what options for the first shot the player can choose between.
@@ -49,7 +49,7 @@ The player chooses the next shot by using the numeric keyboard and enter-key. On
 
 The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along. The enter option text is colored green.
 
-![Screenshot of first shot](assets/play_function.png)
+![Screenshot of first shot](assets/play_function1.png)
 
 - ##### Next shot.
 After choosing a shot, the caddie will present it's outcome followed by instructions for the next shot and it's options. This procedure will continue until the ball is in the hole.
@@ -59,7 +59,7 @@ The player chooses the next shot by using the numeric keyboard and enter-key. On
 
 The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along. The enter option text is colored green.
 
-![Screenshot of next shot](assets/play_second_shot.png)
+![Screenshot of next shot](assets/play_second_shot1.png)
 
 - ##### Submit score or leave game.
 When the ball is in the hole, the caddie will present the score for the round and ask the player if it wants to submit score and head back to the clubhouse or leave the game without submitting score. The terminal will clear and either load the clubhouse or print a welcome back message, depending on the players choice.
@@ -68,7 +68,7 @@ The player chooses it's option using the numeric keyboard and enter-key. If ente
 
 The text is printed using the time.sleep function to make the letters appear one after each other, I think it makes the text easier for the player to read and follow along.
 
-![Screenshot of submitting score or leave game](assets/submit_score.png)
+![Screenshot of submitting score or leave game](assets/submit_score1.png)
 
 - ##### Leaderboard.
 In the clubhouse if the player chooses the check out the leaderboard, the terminal will clear and print "Loading leaderboard..." before showing it's content.
@@ -77,7 +77,7 @@ The heading on the leaderboard is green colored.
 
 When done with the leaderboard the player is asked to press 1+enter-key to head back to the clubhouse. If entering a invalid choice (letter or symbol) an error message is shown in red colored text, and asks the player to try again.
 
-![Screenshot of leaderboard](assets/leaderboard.png)
+![Screenshot of leaderboard](assets/leaderboard1.png)
 
 - ##### Rule book.
 If the player wants to read about the rules of the game it presses 3 on the numeric keyboard + enter-key. 
@@ -85,7 +85,7 @@ The rule book is loaded using the file.read() function, because the content of t
 
 When done reading the rule book the player is asked to press 1+enter-key to head back to the clubhouse. If entering a invalid choice (letter or symbol) an error message will appear in red colored text, and asks the player to try again.
 
-![Screenshot of rule book](assets/rule_book.png)
+![Screenshot of rule book](assets/rule_book1.png)
 
 - ##### Leave game.
 The player can leave the game at any time. There's options for that in the clubhouse and after each shot. The player is informed how to do so and just needs to follow the instructions provided. When they leave the game a welcome back message appears in the terminal.
@@ -177,7 +177,6 @@ The game was tested continuously in CA terminal to make sure each function worke
 | Shot functions | Display a comment from caddie: result from previous shot, options for next shot and leave game option | Shows comment from caddie and options for next shot | Pass |
 | Check for invalid input when choosing shot | Make sure no letters or symbols are entered | Error message appears when entered letters or symbols or irrelevant numbers | Pass |
 | Submit score | Update spreadsheet with entered player name and score from round | Spreadsheet is updated | Pass |
-| 
 
 ###### Validator results
 

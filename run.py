@@ -1,9 +1,9 @@
-import gspread
-from google.oauth2.service_account import Credentials
+import sys
 import time
 import os
+import gspread
+from google.oauth2.service_account import Credentials
 from blessed import Terminal
-import sys
 
 
 SCOPE = [
@@ -36,13 +36,13 @@ def logotype():
     print(term.green + content_logo + term.normal)
 
 
-def print_slow(str):
+def print_slow(words):
     """
     Function for printing text slow.
     Printing each letter set to 0.03s
     Code retrieved from Stack Overflow
     """
-    for letter in str:
+    for letter in words:
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.03)
@@ -50,17 +50,17 @@ def print_slow(str):
 
 term = Terminal()   # Code from CI mentor Alexsei Konovalov
 
-player_name = None
+PLAYER_NAME = None
 
 
-def get_player_name():
+def get_PLAYER_NAME():
     """
     # Asks player for name
     """
 
-    global player_name
+    global PLAYER_NAME
 
-    if player_name is None:
+    if PLAYER_NAME is None:
         while True:
             name = input(term.green + "\nEnter your name: " + term.normal)
             if valid_name(name):
@@ -69,7 +69,7 @@ def get_player_name():
                     term.green + f"\nThank you {name}, "
                     "great to meet you!\n" + term.normal
                     )
-                player_name = name
+                PLAYER_NAME = name
                 break
 
 
@@ -193,7 +193,7 @@ def update_leaderboard(score):
     """
 
     sheet = SHEET.get_worksheet(0)
-    row_data = [player_name, int(score)]
+    row_data = [PLAYER_NAME, int(score)]
     sheet.append_row(row_data)
 
 
@@ -310,7 +310,7 @@ def play_driver_shot():
         "\nYou're now 125 meters away from the hole. \nThere's a bunker "
         "on the back side of the green and on the left side, \nthe "
         "left one is really steep and is hard to get out of.\n"
-        "You normally play your 7 iron from this distance, "
+        "\nYou normally play your 7 iron from this distance, "
         "\nbut maybe it's better to play the 8 iron, "
         "which goes shorter?\n"
         )
@@ -339,7 +339,7 @@ def play_driver_shot():
 
 def play_7_iron_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot,
     - Runs the choice through get_choice function and return
     next function
@@ -385,7 +385,7 @@ def play_7_iron_shot():
 
 def play_driver_7iron_hole_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave game,
     - Runs the choice through get_choice function and return
     next function
@@ -426,7 +426,7 @@ def play_driver_7iron_hole_shot():
 
 def play_driver_7iron_short_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot,
     - Runs the choice through get_choice function and return
     next function
@@ -466,7 +466,7 @@ def play_driver_7iron_short_shot():
 
 def play_driver_7iron_short_chip_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -508,7 +508,7 @@ def play_driver_7iron_short_chip_shot():
 
 def play_driver_7iron_short_putt_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -545,7 +545,7 @@ def play_driver_7iron_short_putt_shot():
 
 def play_8iron_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot,
     - Runs the choice through get_choice function and return
     next function
@@ -586,7 +586,7 @@ def play_8iron_shot():
 
 def play_driver_8iron_chip_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -627,7 +627,7 @@ def play_driver_8iron_chip_shot():
 
 def play_driver_8iron_putt_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -665,7 +665,7 @@ def play_driver_8iron_putt_shot():
 
 def play_iron_shot():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the first choice,
     - Asks the player to choose next shot,
     - Runs the choice through get_choice function and return
     next function
@@ -706,7 +706,7 @@ def play_iron_shot():
 
 def play_iron_wood():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -748,7 +748,7 @@ def play_iron_wood():
 
 def play_iron_wood_green():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -784,7 +784,7 @@ def play_iron_wood_green():
 
 def play_iron_wood_green_again():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -824,7 +824,7 @@ def play_iron_wood_green_again():
 
 def play_iron_wood_green_fringe():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -863,7 +863,7 @@ def play_iron_wood_green_fringe():
 
 def play_iron_wood_green_fringe_chip():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -908,7 +908,7 @@ def play_iron_wood_green_fringe_chip():
 
 def play_iron_wood_green_fringe_7iron():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -948,7 +948,7 @@ def play_iron_wood_green_fringe_7iron():
 
 def play_iron_wood_fringe():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to choose next shot or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -990,7 +990,7 @@ def play_iron_wood_fringe():
 
 def play_iron_wood_fringe_wedge():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -1030,7 +1030,7 @@ def play_iron_wood_fringe_wedge():
 
 def play_iron_wood_fringe_7iron():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -1067,6 +1067,12 @@ def play_iron_wood_fringe_7iron():
 
 
 def play_iron_layup():
+    """
+    - Tells the player the result of the previous choice,
+    - Asks the player make another choice,
+    - Runs the choice through get_choice function and return
+    next function
+    """
     print_slow(
         "\nGood choice.\n"
         )
@@ -1101,7 +1107,7 @@ def play_iron_layup():
 
 def play_iron_layup_chip():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -1141,7 +1147,7 @@ def play_iron_layup_chip():
 
 def play_iron_layup_putt():
     """
-    - Tells the player the result of the  first choice,
+    - Tells the player the result of the previous shot,
     - Asks the player to submit score or leave the game,
     - Runs the choice through get_choice function and return
     next function
@@ -1180,7 +1186,7 @@ def main():
     """
     Runs the game
     """
-    get_player_name()
+    get_PLAYER_NAME()
 
     menu()
     rule_book()
